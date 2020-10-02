@@ -11,6 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- JQuery API Script -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -20,6 +22,7 @@
 					<!-- <span class="icon solid major fa-cloud"></span> -->
 					<h1>Blockchain Beans</h1>
 					<p>Increasing transparency in the coffee value chain.</p>
+					<p style="padding-left: 25%; padding-right: 25%; padding-top: 1%;">Accumsan feugiat mi commodo erat lorem ipsum, sed magna lobortis feugiat sapien sed etiam volutpat accumsan.</p>
 					<ul class="actions special">
 						<li><a href="#one" class="button scrolly">Learn More</a></li>
 					</ul>
@@ -32,10 +35,9 @@
 					<div class="row gtr-150">
 						<div class="col-6 col-12-medium">
 							<header class="major">
-								<h2>Claudia and Juan</h2>
+								<h2>Lorem ipsum dolor adipiscing amet dolor consequat</h2>
 							</header>
-							<p>High in the mountains of Honduras sits a house in the middle of countless sloping trees. Claudia, her husband Juan, and six other assorted family members live inside, their income depending largely on the coffee that surrounds them. There have been years when yields have been good and years when they have not.</p>
-							<p>Last year, Claudia and Juan weren’t able to fertilize their fields because their previous coffee harvest income could not cover both their living expenses and farm investments. Every year they worry if they can harvest enough to set themselves up for bigger success next year.</p>
+							<p>Adipiscing a commodo ante nunc accumsan et interdum mi ante adipiscing. A nunc lobortis non nisl amet vis sed volutpat aclacus nascetur ac non. Lorem curae et ante amet sapien sed tempus adipiscing id accumsan.</p>
 						</div>
 						<div class="col-6 col-12-medium imp-medium">
 							<span class="image fit"><img src="images/3x2-callout-claudia.jpg" alt="" /></span>
@@ -124,7 +126,7 @@
 					</div>
 					<div class="col-6 col-12-medium">
 						<header class="major">
-							<h2>Product Trace</h2>
+							<h2>Ipsum feugiat consequat</h2>
 						</header>
 						<p>Adipiscing a commodo ante nunc accumsan et interdum mi ante adipiscing. A nunc lobortis non nisl amet vis sed volutpat aclacus nascetur ac non. Lorem curae et ante amet sapien sed tempus adipiscing id accumsan.</p>
 					</div>					
@@ -145,28 +147,78 @@
 				</div>
 			</section> -->
 
-		<!-- Five -->
-		<section id="five" class="main style1 special">
+		<!-- Lot Information -->
+		<section id="five" class="main style1">
+
 			<div class="container">
 				<header class="major">
-					<h2>Feedback</h2>
+					<h2>Lot Information</h2>
 				</header>
-				<p>Tell us what you think!</p>
-				<form method="post" action="#">
+				<p>Enter a lot ID</p>
+				<form method="get" action="#">
+
 					<div class="row gtr-uniform gtr-50">
-						<div class="col-12">
-							<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6" maxlength="255"></textarea>
+
+						<div class="col-6 col-12-xsmall">
+							<input type="text" name="demo-name" id="lot-id" value="" placeholder="Lot ID" />
 						</div>
+
 						<div class="col-12">
 							<ul class="actions">
-								<li><input type="submit" value="Send Message" class="primary" /></li>
-								<li><input type="reset" value="Reset" /></li>
+								<li><button type="button" id="get-lot-id">Get Data</button></li>
 							</ul>
 						</div>
 					</div>
 				</form>
+				<p id="lot-name"></p>
+				<p id="product-name"></p>
+				<p id="lot-type"></p>
+				<p id="created-date"></p>
+				<p id="current-weight"></p>
+				<video>Lot Video</video>
 			</div>
 		</section>
+
+<!-- Data from URL (Node) -->
+		<section id="five" class="main style2">
+		<div class="container">
+			<header class="major">
+				<h2>Node Information</h2>
+			</header>
+			<p>Getting data from the URL</p>
+						<div class="row">
+							<div class="col-6 col-12-medium">
+								<ul>
+									<li id="node-id"></li>
+									<li id="node-name"></li>
+									<li id="node-city"></li>
+								</ul>
+						</div>
+		</div>
+	</section>
+
+	<!-- Form -->
+	<section id="five" class="main style1">
+		<div class="container">
+			<header class="major">
+				<h2>Feedback</h2>
+			</header>
+			<p>Tell us what you think!</p>
+			<form method="post" action="#">
+				<div class="row gtr-uniform gtr-50">
+					<div class="col-12">
+						<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6" maxlength="255"></textarea>
+					</div>
+					<div class="col-12">
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" class="primary" /></li>
+							<li><input type="reset" value="Reset" /></li>
+						</ul>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
 
 		<!-- Five -->
 		<!--
@@ -510,6 +562,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 			<script src="assets/js/main.js"></script>
 
 	</body>

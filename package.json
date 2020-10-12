@@ -1,16 +1,17 @@
 {
-  "name": "blockchainbeansbackend",
-  "version": "1.0.0",
-  "description": "This is the backend of the Blockchain Coffee App.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Aidar",
-  "license": "MIT",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.1"
-  }
+	"name": "blockchainbeansbackend",
+	"version": "1.0.0",
+	"description": "This is the backend of the Blockchain Coffee App.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index.js"
+	},
+	"author": "Aidar",
+	"license": "MIT",
+	"dependencies": {
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"node-fetch": "^2.6.1"
+	}
 }

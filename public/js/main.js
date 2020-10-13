@@ -39,7 +39,7 @@ async function getLot(lotID) {
 	if (json.images[0]) {
 		console.log('Lot has images');
 		console.log(json.images[0].id);
-		console.log(json.customData['CuppersNotes.Measure'].value);
+		console.log(json.customData['CuppersNotes.Measure'].dateTimeValue);
 		getLotImage(json.images[0].id);
 	} else {
 		console.log('Lot has no images');
@@ -49,7 +49,7 @@ async function getLot(lotID) {
 	document.getElementById('lot-cuppers-notes').innerHTML = `Cuppers Notes: ${json.customData['CuppersNotes.Measure']
 		.value}`;
 	document.getElementById('lot-roast-date').innerHTML = `Roast Date: ${json.customData['RoastDate.MeasureTime']
-		.value}`;
+		.dateTimeValue}`;
 	document.getElementById('lot-farmer-name').innerHTML = `Roaster: ${json.customData['FarmerName.Measure'].value}`;
 }
 

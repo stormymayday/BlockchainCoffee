@@ -47,7 +47,7 @@ app.get('/getlot/:lotid', async (request, response) => {
 		})
 		.then((data) => {
 			// Logging data on the server
-			console.log(data);
+			// console.log(data);
 
 			// Sending data as a RESPONSE to the fronted
 			response.json(data);
@@ -77,13 +77,43 @@ app.get('/getlotimage/:imageid', async (request, response) => {
 		})
 		.then((data) => {
 			// Logging data on the server
-			console.log(data);
+			// console.log(data);
 
 			// Sending data as a RESPONSE to the fronted
 			response.json(data);
 		})
 		.catch((error) => {
 			console.log('Please enter a valid image ID');
+		});
+});
+
+app.get('/getlotvideo/:videoid', async (request, response) => {
+	// API Key:
+	const apiKey = process.env.API_KEY;
+
+	// Getting LodID from the REQUEST parameters:
+	const videoid = request.params['videoid'];
+
+	// Fetch Request:
+	fetch(`https://bext360api.azure-api.net/retail/v1/getvideo/${videoid}`, {
+		method: 'GET',
+		headers: {
+			'Ocp-Apim-Subscription-Key': apiKey
+		}
+	})
+		.then((result) => {
+			// console.log(result);
+			return result.json();
+		})
+		.then((data) => {
+			// Logging data on the server
+			// console.log(data);
+
+			// Sending data as a RESPONSE to the fronted
+			response.json(data);
+		})
+		.catch((error) => {
+			console.log('Please enter a valid video ID');
 		});
 });
 
@@ -107,7 +137,7 @@ app.get('/getnode/:nodeid', async (request, response) => {
 		})
 		.then((data) => {
 			// Logging data on the server
-			console.log(data);
+			// console.log(data);
 			// Sending data as a RESPONSE to the fronted
 			response.json(data);
 
@@ -139,7 +169,7 @@ app.get('/getlothistory/:lotid', async (request, response) => {
 		})
 		.then((data) => {
 			// Logging data on the server
-			console.log(data);
+			// console.log(data);
 			// Sending data as a RESPONSE to the fronted
 			response.json(data);
 

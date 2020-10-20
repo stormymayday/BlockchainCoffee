@@ -4,10 +4,107 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-async function getLotImage(imageID) {
-	const imageid = imageID;
+// async function getLotImage(imageID) {
+// 	const imageid = imageID;
+// 	console.log(`This is the lot image ID = ${imageID}`);
+// 	// Local Path
+// 	const api_url = `getlotimage/${imageid}`;
+
+// 	// Get Fetch request to a Local Path
+// 	const response = await fetch(api_url);
+
+// 	// Converting response into JSON
+// 	const json = await response.json();
+
+// 	// Console logging the response:
+// 	console.log(json);
+// 	let base64blob = json;
+// 	document.getElementById('roasting-img').src = 'data:image/png;base64,' + base64blob;
+// }
+
+// async function getLot(lotID) {
+// 	const lotid = lotID;
+// 	// Local Path
+// 	const api_url = `getlot/${lotid}`;
+
+// 	// Get Fetch request to a Local Path
+// 	const response = await fetch(api_url);
+
+// 	// Converting response into JSON
+// 	const json = await response.json();
+
+// 	// Console logging the response:
+// 	console.log(json);
+
+// 	// Checking if Lot has images
+// 	if (json.images[0]) {
+// 		console.log('Lot has images');
+// 		console.log(json.images[0].id);
+// 		// console.log(json.customData['CuppersNotes.Measure'].dateTimeValue);
+// 		getLotImage(json.images[0].id);
+// 	} else {
+// 		console.log('Lot has no images');
+// 	}
+
+// 	// DOM Manipulation
+// 	document.getElementById('lot-cuppers-notes').innerHTML = `Cuppers Notes: ${json.customData['CuppersNotes.Measure']
+// 		.value}`;
+// 	document.getElementById('lot-roast-date').innerHTML = `Roast Date: ${json.customData['RoastDate.MeasureTime']
+// 		.dateTimeValue}`;
+// 	document.getElementById('lot-farmer-name').innerHTML = `Roaster: ${json.customData['FarmerName.Measure'].value}`;
+// }
+
+// async function getNode(nodeID) {
+// 	const nodeid = nodeID;
+// 	// Local Path
+// 	const api_url = `getnode/${nodeid}`;
+
+// 	// Get Fetch request to a Local Path
+// 	const response = await fetch(api_url);
+
+// 	// Converting response into JSON
+// 	const json = await response.json();
+
+// 	// Console logging the response:
+// 	console.log(json);
+
+// 	// Checking if Node has images
+// 	if (json.images[0]) {
+// 		console.log('Node has images');
+// 		console.log(json.images[0].id);
+// 		getNodeImage(json.images[0].id);
+// 	} else {
+// 		console.log('Node has no images');
+// 	}
+
+// 	// DOM Manipulation
+// 	// document.getElementById('node-city').innerHTML = `City: ${json.defaultLocation.city}`;
+// 	// document.getElementById('node-state').innerHTML = `State: ${json.defaultLocation.state}`;
+// 	// document.getElementById('node-country').innerHTML = `Country: ${json.defaultLocation.country}`;
+// }
+
+// async function getLotHistory(lotID) {
+// 	const lotid = lotID;
+// 	// Local Path
+// 	const api_url = `getlothistory/${lotid}`;
+
+// 	// Get Fetch request to a Local Path
+// 	const response = await fetch(api_url);
+
+// 	// Converting response into JSON
+// 	const json = await response.json();
+
+// 	// Console logging the response:
+// 	console.log(json);
+
+// 	// Displaying data in the DOM:
+// }
+
+// Custom functions for each section
+async function getNode(nodeID) {
+	const nodeid = nodeID;
 	// Local Path
-	const api_url = `getlotimage/${imageid}`;
+	const api_url = `getnode/${nodeid}`;
 
 	// Get Fetch request to a Local Path
 	const response = await fetch(api_url);
@@ -15,10 +112,7 @@ async function getLotImage(imageID) {
 	// Converting response into JSON
 	const json = await response.json();
 
-	// Console logging the response:
-	console.log(json);
-	let base64blob = json;
-	document.getElementById('roasting-img').src = 'data:image/png;base64,' + base64blob;
+	return json;
 }
 
 async function getLot(lotID) {
@@ -32,31 +126,13 @@ async function getLot(lotID) {
 	// Converting response into JSON
 	const json = await response.json();
 
-	// Console logging the response:
-	console.log(json);
-
-	// Checking if Lot has images
-	if (json.images[0]) {
-		console.log('Lot has images');
-		console.log(json.images[0].id);
-		console.log(json.customData['CuppersNotes.Measure'].dateTimeValue);
-		getLotImage(json.images[0].id);
-	} else {
-		console.log('Lot has no images');
-	}
-
-	// DOM Manipulation
-	document.getElementById('lot-cuppers-notes').innerHTML = `Cuppers Notes: ${json.customData['CuppersNotes.Measure']
-		.value}`;
-	document.getElementById('lot-roast-date').innerHTML = `Roast Date: ${json.customData['RoastDate.MeasureTime']
-		.dateTimeValue}`;
-	document.getElementById('lot-farmer-name').innerHTML = `Roaster: ${json.customData['FarmerName.Measure'].value}`;
+	return json;
 }
 
-async function getNode(nodeID) {
-	const nodeid = nodeID;
+async function getLotVideo(videoID) {
+	const videoid = videoID;
 	// Local Path
-	const api_url = `getnode/${nodeid}`;
+	const api_url = `getlotvideo/${videoid}`;
 
 	// Get Fetch request to a Local Path
 	const response = await fetch(api_url);
@@ -64,28 +140,18 @@ async function getNode(nodeID) {
 	// Converting response into JSON
 	const json = await response.json();
 
-	// Console logging the response:
-	console.log(json);
+	let base64blob = json;
 
-	// Checking if Node has images
-	if (json.images[0]) {
-		console.log('Node has images');
-		console.log(json.images[0].id);
-		getNodeImage(json.images[0].id);
-	} else {
-		console.log('Node has no images');
-	}
+	console.log(base64blob);
 
-	// DOM Manipulation
-	document.getElementById('node-city').innerHTML = `City: ${json.defaultLocation.city}`;
-	document.getElementById('node-state').innerHTML = `State: ${json.defaultLocation.state}`;
-	document.getElementById('node-country').innerHTML = `Country: ${json.defaultLocation.country}`;
+	return base64blob;
 }
 
-async function getLotHistory(lotID) {
-	const lotid = lotID;
+async function getLotImage(imageID) {
+	const imageid = imageID;
+	console.log(`This is the lot image ID = ${imageID}`);
 	// Local Path
-	const api_url = `getlothistory/${lotid}`;
+	const api_url = `getlotimage/${imageid}`;
 
 	// Get Fetch request to a Local Path
 	const response = await fetch(api_url);
@@ -93,10 +159,9 @@ async function getLotHistory(lotID) {
 	// Converting response into JSON
 	const json = await response.json();
 
-	// Console logging the response:
-	console.log(json);
+	let base64blob = json;
 
-	// Displaying data in the DOM:
+	return base64blob;
 }
 
 // Grabbing LotID from the URL & calling a function
@@ -104,12 +169,65 @@ window.onload = function() {
 	const url_string = window.location.href.toLowerCase();
 	const url = new URL(url_string);
 	const lotid = url.searchParams.get('lotid');
-	// Function Call:
-	// getLotHistory(lotid);
-	getLot(lotid);
-	getNode('73427e9e-e29d-4b33-9a27-95244bdb0370');
+	// Function Calls:
+	// Section 3
+	// QC Intake Green Node
+	getNode('1dc41db1-f7b5-45f1-8810-432e6be023cb').then((QCIntakeGreen) => {
+		document.getElementById(
+			'Node-QC-Intake-Green-defaultLocation-city-state-country'
+		).innerHTML = `Roaster Received in: ${QCIntakeGreen.defaultLocation.city}, ${QCIntakeGreen.defaultLocation
+			.state}, ${QCIntakeGreen.defaultLocation.country}`;
+	});
+	// 2020 Combined lot at QCCC roastery Date & Collector's Name
+	getLot('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((CombinedLotAtQCCCRoastery2020) => {
+		document.getElementById(
+			'Lot-2020-Combined-lot-at-QCCC-roastery-date'
+		).innerHTML = `Date: ${CombinedLotAtQCCCRoastery2020.customData['TransportDate.MeasureTime'].dateTimeValue}`;
+		document.getElementById(
+			'Lot-2020-Combined-lot-at-QCCC-roastery-CollectorName'
+		).innerHTML = `Received by: ${CombinedLotAtQCCCRoastery2020.customData['CollectorName.Measure'].value}`;
+	});
+	// 2020 Combined lot at QCCC roastery Video
+	getLotVideo('4f732662-303d-42bd-8534-ffb472cd61a2').then((lotVideo) => {
+		document.getElementById('Lot-2020-Combined-lot-at-QCCC-roastery-video').src =
+			'data:video/mp4;base64,' + lotVideo;
+	});
+	// Port of Oakland Green Import Node
+	getNode('b2d1d8b3-498b-424e-87df-3050aa237115').then((PortOfOaklandGreenImport) => {
+		document.getElementById(
+			'Node-Port-of-Oakland-Green-Import-city-state-country'
+		).innerHTML = `Imported At: ${PortOfOaklandGreenImport.defaultLocation.city}, ${PortOfOaklandGreenImport
+			.defaultLocation.state}, ${PortOfOaklandGreenImport.defaultLocation.country}`;
+	});
+	// Combined lot 2020 Import Date
+	getLot('8f43a6a8-52aa-45d6-9bba-cbf8f823037d').then((CombinedLot2020) => {
+		document.getElementById('Lot-Combined-lot-2020-import-date').innerHTML = `Date: ${CombinedLot2020.customData[
+			'ImportDate.MeasureTime'
+		].dateTimeValue}`;
+	});
+	// Combined Lot 2020 Image of the ship
+	getLotImage('4aa16929-f043-4520-809d-d1f62cfb106d').then((lotImage) => {
+		document.getElementById('Combined-lot-2020-image').src = 'data:image/jpg;base64,' + lotImage;
+	});
+	// Puerto Cortés Green Export Node
+	getNode('c51f7616-5fb6-4416-be83-c98dc0d25df1').then((PuertoCortesGreenExport) => {
+		document.getElementById(
+			'Node-Puerto-Cortes-Green-Export-city-state-country'
+		).innerHTML = `Exported From: ${PuertoCortesGreenExport.defaultLocation.city}, ${PuertoCortesGreenExport
+			.defaultLocation.state}, ${PuertoCortesGreenExport.defaultLocation.country}`;
+	});
+	// Combined lot 2020 Export Date
+	getLot('f1222ba7-0c10-4abf-b49f-c197be1ec8e1').then((CombinedLot2020) => {
+		document.getElementById('Lot-Combined-lot-2020-export-date').innerHTML = `Date: ${CombinedLot2020.customData[
+			'ExportDate.MeasureTime'
+		].dateTimeValue}`;
+	});
+	// 2020 Combined lot at QCCC roastery Video
+	getLotVideo('c8bf9e23-1ae9-4422-8e00-984566d5663a').then((lotVideo) => {
+		document.getElementById('loading-truck-video').src = 'data:video/mp4;base64,' + lotVideo;
+	});
 };
-// Testing Section End ---------------------------------
+
 (function($) {
 	var $window = $(window),
 		$body = $('body');
@@ -156,49 +274,50 @@ window.onload = function() {
 // 		});
 // });
 
-function getNodeName(nodeId) {
-	const apiKey = '74ef3c49a75845ea9b02924702956447';
-	fetch(`https://bext360api.azure-api.net/retail/v1/getnode/${nodeId}`, {
-		method: 'GET',
-		headers: {
-			'Ocp-Apim-Subscription-Key': apiKey
-		}
-	})
-		.then((result) => {
-			return result.json();
-		})
-		.then((data) => {
-			console.log(data);
+// Not Used
+// function getNodeName(nodeId) {
+// 	const apiKey = '74ef3c49a75845ea9b02924702956447';
+// 	fetch(`https://bext360api.azure-api.net/retail/v1/getnode/${nodeId}`, {
+// 		method: 'GET',
+// 		headers: {
+// 			'Ocp-Apim-Subscription-Key': apiKey
+// 		}
+// 	})
+// 		.then((result) => {
+// 			return result.json();
+// 		})
+// 		.then((data) => {
+// 			console.log(data);
 
-			// Cheking if node has images
-			if (data.images) {
-				// Implement Loop Here:
-				let imageID = data.images[0].id;
-				console.log(`This is the image ID: ${imageID}`);
+// 			// Cheking if node has images
+// 			if (data.images) {
+// 				// Implement Loop Here:
+// 				let imageID = data.images[0].id;
+// 				console.log(`This is the image ID: ${imageID}`);
 
-				// Get Image API Call
-				fetch(`https://bext360api.azure-api.net/retail/v1/getimage/${imageID}`, {
-					method: 'GET',
-					headers: {
-						'Ocp-Apim-Subscription-Key': apiKey
-					}
-				})
-					.then((result2) => {
-						return result2.json();
-					})
-					.then((data2) => {
-						// Apply Image formatting here
-						console.log(`This is an image ${data2}`);
-					})
-					.catch((error) => {
-						console.log(error);
-					});
-			}
-		})
-		.catch((error) => {
-			console.log(error);
-		});
-}
+// 				// Get Image API Call
+// 				fetch(`https://bext360api.azure-api.net/retail/v1/getimage/${imageID}`, {
+// 					method: 'GET',
+// 					headers: {
+// 						'Ocp-Apim-Subscription-Key': apiKey
+// 					}
+// 				})
+// 					.then((result2) => {
+// 						return result2.json();
+// 					})
+// 					.then((data2) => {
+// 						// Apply Image formatting here
+// 						console.log(`This is an image ${data2}`);
+// 					})
+// 					.catch((error) => {
+// 						console.log(error);
+// 					});
+// 			}
+// 		})
+// 		.catch((error) => {
+// 			console.log(error);
+// 		});
+// }
 // getNodeName('6f93c9fc-6a58-41a7-9880-413b6ed87ecd');
 
 // NodeID:
@@ -206,136 +325,136 @@ function getNodeName(nodeId) {
 // LotID:
 // b672f566-bd19-4c81-ab40-8100d51d13a6
 
-document.getElementById('get-lot-id').onclick = function() {
-	let lotID = document.getElementById('lot-id').value;
+// Not Used
+// document.getElementById('get-lot-id').onclick = function() {
+// 	let lotID = document.getElementById('lot-id').value;
 
-	if (lotID) {
-		const apiKey = '74ef3c49a75845ea9b02924702956447';
-		fetch(`https://bext360api.azure-api.net/retail/v1/getlot/${lotID}`, {
-			method: 'GET',
-			headers: {
-				'Ocp-Apim-Subscription-Key': apiKey
-			}
-		})
-			.then((result) => {
-				// console.log(result);
-				return result.json();
-			})
-			.then((data) => {
-				console.log(data);
-				const lotName = data.lotName;
-				const productName = data.productName;
-				const lotType = data.lotType;
-				const createdDate = data.createdDate;
-				const currentWeight = data.currentWeight;
-				console.log(lotName, productName, lotType, createdDate, currentWeight);
-				document.getElementById('lot-name').innerHTML = `<strong>Lot Name: </strong>${lotName}`;
-				document.getElementById('product-name').innerHTML = `<strong>Product Name: </strong>${productName}`;
-				document.getElementById('lot-type').innerHTML = `<strong>Lot Type: </strong>${lotType}`;
-				document.getElementById('created-date').innerHTML = `<strong>Created Date: </strong>${currentWeight}`;
-				document.getElementById(
-					'current-weight'
-				).innerHTML = `<strong>Current Weight: </strong>${currentWeight}`;
-			})
-			.catch((error) => {
-				// document.getElementById('lot-name').innerHTML = 'Please enter a valid lot ID';
-				alert('Please enter a valid lot ID');
-			});
-	} else {
-		// document.getElementById('lot-name').innerHTML = 'Please enter a valid lot ID';
-		alert('Please enter a valid lot ID');
-	}
-};
+// 	if (lotID) {
+// 		const apiKey = '74ef3c49a75845ea9b02924702956447';
+// 		fetch(`https://bext360api.azure-api.net/retail/v1/getlot/${lotID}`, {
+// 			method: 'GET',
+// 			headers: {
+// 				'Ocp-Apim-Subscription-Key': apiKey
+// 			}
+// 		})
+// 			.then((result) => {
+// 				// console.log(result);
+// 				return result.json();
+// 			})
+// 			.then((data) => {
+// 				console.log(data);
+// 				const lotName = data.lotName;
+// 				const productName = data.productName;
+// 				const lotType = data.lotType;
+// 				const createdDate = data.createdDate;
+// 				const currentWeight = data.currentWeight;
+// 				console.log(lotName, productName, lotType, createdDate, currentWeight);
+// 				document.getElementById('lot-name').innerHTML = `<strong>Lot Name: </strong>${lotName}`;
+// 				document.getElementById('product-name').innerHTML = `<strong>Product Name: </strong>${productName}`;
+// 				document.getElementById('lot-type').innerHTML = `<strong>Lot Type: </strong>${lotType}`;
+// 				document.getElementById('created-date').innerHTML = `<strong>Created Date: </strong>${currentWeight}`;
+// 				document.getElementById(
+// 					'current-weight'
+// 				).innerHTML = `<strong>Current Weight: </strong>${currentWeight}`;
+// 			})
+// 			.catch((error) => {
+// 				alert('Please enter a valid lot ID');
+// 			});
+// 	} else {
+// 		alert('Please enter a valid lot ID');
+// 	}
+// };
 
-window.onload = function() {
-	let url_string = window.location.href.toLowerCase();
-	let url = new URL(url_string);
-	let nodeid = url.searchParams.get('nodeid');
-	console.log(`Node id = ${nodeid}`);
-	if (nodeid) {
-		const apiKey = '74ef3c49a75845ea9b02924702956447';
-		fetch(`https://bext360api.azure-api.net/retail/v1/getnode/${nodeid}`, {
-			method: 'GET',
-			headers: {
-				'Ocp-Apim-Subscription-Key': apiKey
-			}
-		})
-			.then((result) => {
-				// console.log(result);
-				return result.json();
-			})
-			.then((data) => {
-				console.log(data);
-				const nodeID = data.nodeId;
-				const nodeName = data.nodeName;
-				const nodeCity = data.defaultLocation.city;
+// Not Used
+// window.onload = function() {
+// 	let url_string = window.location.href.toLowerCase();
+// 	let url = new URL(url_string);
+// 	let nodeid = url.searchParams.get('nodeid');
+// 	console.log(`Node id = ${nodeid}`);
+// 	if (nodeid) {
+// 		const apiKey = '74ef3c49a75845ea9b02924702956447';
+// 		fetch(`https://bext360api.azure-api.net/retail/v1/getnode/${nodeid}`, {
+// 			method: 'GET',
+// 			headers: {
+// 				'Ocp-Apim-Subscription-Key': apiKey
+// 			}
+// 		})
+// 			.then((result) => {
+// 				// console.log(result);
+// 				return result.json();
+// 			})
+// 			.then((data) => {
+// 				console.log(data);
+// 				const nodeID = data.nodeId;
+// 				const nodeName = data.nodeName;
+// 				const nodeCity = data.defaultLocation.city;
 
-				document.getElementById('node-id').innerHTML = `Node ID - ${nodeID}`;
-				document.getElementById('node-name').innerHTML = `Node Name - ${nodeName}`;
-				document.getElementById('node-city').innerHTML = `Node City - ${nodeCity}`;
+// 				document.getElementById('node-id').innerHTML = `Node ID - ${nodeID}`;
+// 				document.getElementById('node-name').innerHTML = `Node Name - ${nodeName}`;
+// 				document.getElementById('node-city').innerHTML = `Node City - ${nodeCity}`;
 
-				// Image Part Start:
+// 				// Image Part Start:
 
-				if (data.images[0]) {
-					// Implement Loop Here:
-					let imageID = data.images[0].id;
-					console.log(`This is the image ID: ${imageID}`);
+// 				if (data.images[0]) {
+// 					// Implement Loop Here:
+// 					let imageID = data.images[0].id;
+// 					console.log(`This is the image ID: ${imageID}`);
 
-					// Get Image API Call
-					fetch(`https://bext360api.azure-api.net/retail/v1/getimage/${imageID}`, {
-						method: 'GET',
-						headers: {
-							'Ocp-Apim-Subscription-Key': apiKey
-						}
-					})
-						.then((response) => {
-							// return response.blob();
-							return response.json();
-						})
-						.then((myBlob) => {
-							// Apply Image formatting here
-							let base64blob = myBlob;
-							document.getElementById('myImage').src = 'data:image/png;base64,' + base64blob;
-						})
-						.catch((error) => {
-							console.log(error);
-						});
-				}
+// 					// Get Image API Call
+// 					fetch(`https://bext360api.azure-api.net/retail/v1/getimage/${imageID}`, {
+// 						method: 'GET',
+// 						headers: {
+// 							'Ocp-Apim-Subscription-Key': apiKey
+// 						}
+// 					})
+// 						.then((response) => {
+// 							// return response.blob();
+// 							return response.json();
+// 						})
+// 						.then((myBlob) => {
+// 							// Apply Image formatting here
+// 							let base64blob = myBlob;
+// 							document.getElementById('myImage').src = 'data:image/png;base64,' + base64blob;
+// 						})
+// 						.catch((error) => {
+// 							console.log(error);
+// 						});
+// 				}
 
-				// Image Part End
+// 				// Image Part End
 
-				// Video Part Start
-				if (data.videos[0]) {
-					// Implement Loop Here:
-					console.log(data.videos[0].id);
-					let videoID = data.videos[0].id;
-					console.log(`This is the video ID: ${videoID}`);
+// 				// Video Part Start
+// 				if (data.videos[0]) {
+// 					// Implement Loop Here:
+// 					console.log(data.videos[0].id);
+// 					let videoID = data.videos[0].id;
+// 					console.log(`This is the video ID: ${videoID}`);
 
-					// Get Video API Call
-					fetch(`https://bext360api.azure-api.net/retail/v1/getvideo/${videoID}`, {
-						method: 'GET',
-						headers: {
-							'Ocp-Apim-Subscription-Key': apiKey
-						}
-					})
-						.then((response) => {
-							// return response.blob();
-							return response.json();
-						})
-						.then((myBlob) => {
-							// Apply Image formatting here
-							let base64blob = myBlob;
-							document.getElementById('myVideo').src = 'data:video/mp4;base64,' + base64blob;
-						})
-						.catch((error) => {
-							console.log(error);
-						});
-				}
-				// Video Part End
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	} else {
-	}
-};
+// 					// Get Video API Call
+// 					fetch(`https://bext360api.azure-api.net/retail/v1/getvideo/${videoID}`, {
+// 						method: 'GET',
+// 						headers: {
+// 							'Ocp-Apim-Subscription-Key': apiKey
+// 						}
+// 					})
+// 						.then((response) => {
+// 							// return response.blob();
+// 							return response.json();
+// 						})
+// 						.then((myBlob) => {
+// 							// Apply Image formatting here
+// 							let base64blob = myBlob;
+// 							document.getElementById('myVideo').src = 'data:video/mp4;base64,' + base64blob;
+// 						})
+// 						.catch((error) => {
+// 							console.log(error);
+// 						});
+// 				}
+// 				// Video Part End
+// 			})
+// 			.catch((error) => {
+// 				console.log(error);
+// 			});
+// 	} else {
+// 	}
+// };

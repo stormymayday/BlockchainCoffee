@@ -143,40 +143,6 @@ async function getLot(lotID) {
 	return json;
 }
 
-async function getLotWeight(lotID) {
-	const lotid = lotID;
-	// Local Path
-	const api_url = `getlot/${lotid}`;
-
-	// Get Fetch request to a Local Path
-	const response = await fetch(api_url);
-
-	// Converting response into JSON
-	const json = await response.json();
-
-	const weight = parseInt(json.currentWeight);
-
-	return weight;
-}
-
-async function getLotDate(lotID) {
-	const lotid = lotID;
-	// Local Path
-	const api_url = `getlot/${lotid}`;
-
-	// Get Fetch request to a Local Path
-	const response = await fetch(api_url);
-
-	// Converting response into JSON
-	const json = await response.json();
-
-	const str = json.customData['TransactionDate.MeasureTime'].dateTimeValue;
-
-	const intakeDate = str.slice(0, 10);
-
-	return intakeDate;
-}
-
 async function getLotVideo(videoID) {
 	const videoid = videoID;
 	// Local Path
@@ -218,64 +184,65 @@ window.onload = function() {
 	const url = new URL(url_string);
 	const lotid = url.searchParams.get('lotid');
 
-	// Section 3
-	// QC Intake Green Node
-	// getNode('1dc41db1-f7b5-45f1-8810-432e6be023cb').then((QCIntakeGreen) => {
-	// 	document.getElementById(
-	// 		'Node-QC-Intake-Green-defaultLocation-city-state-country'
-	// 	).innerHTML = `Roaster Received in: ${QCIntakeGreen.defaultLocation.city}, ${QCIntakeGreen.defaultLocation
-	// 		.state}, ${QCIntakeGreen.defaultLocation.country}`;
-	// });
-	// 2020 Combined lot at QCCC roastery Date & Collector's Name
-	// getLot('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((CombinedLotAtQCCCRoastery2020) => {
-	// 	document.getElementById(
-	// 		'Lot-2020-Combined-lot-at-QCCC-roastery-date'
-	// 	).innerHTML = `Date: ${CombinedLotAtQCCCRoastery2020.customData['TransportDate.MeasureTime'].dateTimeValue}`;
-	// 	document.getElementById(
-	// 		'Lot-2020-Combined-lot-at-QCCC-roastery-CollectorName'
-	// 	).innerHTML = `Received by: ${CombinedLotAtQCCCRoastery2020.customData['CollectorName.Measure'].value}`;
-	// });
-	// 2020 Combined lot at QCCC roastery Video
-	// getLotVideo('b4525928-ec35-441d-917e-b02f5a6f4414').then((lotVideo) => {
-	// 	document.getElementById('Lot-2020-Combined-lot-at-QCCC-roastery-video').src =
-	// 		'data:video/mp4;base64,' + lotVideo;
-	// });
-	// Port of Oakland Green Import Node
-	// getNode('b2d1d8b3-498b-424e-87df-3050aa237115').then((PortOfOaklandGreenImport) => {
-	// 	document.getElementById(
-	// 		'Node-Port-of-Oakland-Green-Import-city-state-country'
-	// 	).innerHTML = `Imported At: ${PortOfOaklandGreenImport.defaultLocation.city}, ${PortOfOaklandGreenImport
-	// 		.defaultLocation.state}, ${PortOfOaklandGreenImport.defaultLocation.country}`;
-	// });
-	// Combined lot 2020 Import Date
-	// getLot('8f43a6a8-52aa-45d6-9bba-cbf8f823037d').then((CombinedLot2020) => {
-	// 	document.getElementById('Lot-Combined-lot-2020-import-date').innerHTML = `Date: ${CombinedLot2020.customData[
-	// 		'ImportDate.MeasureTime'
-	// 	].dateTimeValue}`;
-	// });
-	// Combined Lot 2020 Image of the ship
-	// getLotImage('4aa16929-f043-4520-809d-d1f62cfb106d').then((lotImage) => {
-	// 	document.getElementById('Combined-lot-2020-image').src = 'data:image/jpg;base64,' + lotImage;
-	// });
-	// Puerto Cortés Green Export Node
-	// getNode('c51f7616-5fb6-4416-be83-c98dc0d25df1').then((PuertoCortesGreenExport) => {
-	// 	document.getElementById(
-	// 		'Node-Puerto-Cortes-Green-Export-city-state-country'
-	// 	).innerHTML = `Exported From: ${PuertoCortesGreenExport.defaultLocation.city}, ${PuertoCortesGreenExport
-	// 		.defaultLocation.state}, ${PuertoCortesGreenExport.defaultLocation.country}`;
-	// });
-	// Combined lot 2020 Export Date
-	// getLot('f1222ba7-0c10-4abf-b49f-c197be1ec8e1').then((CombinedLot2020) => {
-	// 	document.getElementById('Lot-Combined-lot-2020-export-date').innerHTML = `Date: ${CombinedLot2020.customData[
-	// 		'ExportDate.MeasureTime'
-	// 	].dateTimeValue}`;
-	// });
-	// 2020 Combined lot at QCCC roastery Video
-	// getLotVideo('c8bf9e23-1ae9-4422-8e00-984566d5663a').then((lotVideo) => {
-	// 	document.getElementById('loading-truck-video').src = 'data:video/mp4;base64,' + lotVideo;
-	// });
+	// Section 3 *************************************************************** /
+	// Column 1 - QC Intake Green Node
+	getNode('1dc41db1-f7b5-45f1-8810-432e6be023cb').then((QCIntakeGreen) => {
+		document.getElementById(
+			'Node-QC-Intake-Green-defaultLocation-city-state-country'
+		).innerHTML = `Roaster Received in: ${QCIntakeGreen.defaultLocation.city}, ${QCIntakeGreen.defaultLocation
+			.state}, ${QCIntakeGreen.defaultLocation.country}`;
+	});
+	// Column - 2020 Combined lot at QCCC roastery Date & Collector's Name
+	getLot('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((CombinedLotAtQCCCRoastery2020) => {
+		document.getElementById(
+			'Lot-2020-Combined-lot-at-QCCC-roastery-date'
+		).innerHTML = `Date: ${CombinedLotAtQCCCRoastery2020.customData['TransportDate.MeasureTime'].dateTimeValue}`;
+		document.getElementById(
+			'Lot-2020-Combined-lot-at-QCCC-roastery-CollectorName'
+		).innerHTML = `Received by: ${CombinedLotAtQCCCRoastery2020.customData['CollectorName.Measure'].value}`;
+	});
+	// Column - 2020 Combined lot at QCCC roastery Video
+	getLotVideo('b4525928-ec35-441d-917e-b02f5a6f4414').then((lotVideo) => {
+		document.getElementById('Lot-2020-Combined-lot-at-QCCC-roastery-video').src =
+			'data:video/mp4;base64,' + lotVideo;
+	});
+	// Column - Port of Oakland Green Import Node
+	getNode('b2d1d8b3-498b-424e-87df-3050aa237115').then((PortOfOaklandGreenImport) => {
+		document.getElementById(
+			'Node-Port-of-Oakland-Green-Import-city-state-country'
+		).innerHTML = `Imported At: ${PortOfOaklandGreenImport.defaultLocation.city}, ${PortOfOaklandGreenImport
+			.defaultLocation.state}, ${PortOfOaklandGreenImport.defaultLocation.country}`;
+	});
+	// Column - Combined lot 2020 Import Date
+	getLot('8f43a6a8-52aa-45d6-9bba-cbf8f823037d').then((CombinedLot2020) => {
+		document.getElementById('Lot-Combined-lot-2020-import-date').innerHTML = `Date: ${CombinedLot2020.customData[
+			'ImportDate.MeasureTime'
+		].dateTimeValue}`;
+	});
+	// Column - Combined Lot 2020 Image of the ship
+	getLotImage('4aa16929-f043-4520-809d-d1f62cfb106d').then((lotImage) => {
+		document.getElementById('Combined-lot-2020-image').src = 'data:image/jpg;base64,' + lotImage;
+	});
+	// Column - Puerto Cortés Green Export Node
+	getNode('c51f7616-5fb6-4416-be83-c98dc0d25df1').then((PuertoCortesGreenExport) => {
+		document.getElementById(
+			'Node-Puerto-Cortes-Green-Export-city-state-country'
+		).innerHTML = `Exported From: ${PuertoCortesGreenExport.defaultLocation.city}, ${PuertoCortesGreenExport
+			.defaultLocation.state}, ${PuertoCortesGreenExport.defaultLocation.country}`;
+	});
+	// Column - Combined lot 2020 Export Date
+	getLot('f1222ba7-0c10-4abf-b49f-c197be1ec8e1').then((CombinedLot2020) => {
+		document.getElementById('Lot-Combined-lot-2020-export-date').innerHTML = `Date: ${CombinedLot2020.customData[
+			'ExportDate.MeasureTime'
+		].dateTimeValue}`;
+	});
+	// Column - 2020 Combined lot at QCCC roastery Video
+	getLotVideo('c8bf9e23-1ae9-4422-8e00-984566d5663a').then((lotVideo) => {
+		document.getElementById('loading-truck-video').src = 'data:video/mp4;base64,' + lotVideo;
+	});
+	// End of Section 3 ******************************************************** /
 
-	// Section 4
+	// Section 4 *************************************************************** /
 	// Milling Location, Miller, and Current Lot Weight
 	getLot('b0c1846f-8cef-410e-a2ec-f6d9f3843e9f').then((res) => {
 		document.getElementById('milled-on').innerHTML = `Milled on: ${res.customData['MillingDate.MeasureTime']
@@ -296,12 +263,24 @@ window.onload = function() {
 			if (lotHistory[key].nodeId === '01b66b57-c0a0-481c-abb0-57be005096da') {
 				// Getting the lotIDs Array
 				const lotIDs = lotHistory[key].lotIds;
+				const lotData = {};
 				const weights = [];
 				const intakeDates = [];
-				// Capturing weights of individual lots into the array
 				for (i = 0; i < lotIDs.length; i++) {
-					weights[i] = await getLotWeight(lotIDs[i]);
-					intakeDates[i] = await getLotDate(lotIDs[i]);
+					// API call and object assignment
+					Object.assign(lotData, await getLot(lotIDs[i]));
+
+					// Getting Current Weight in integer format
+					weights[i] = parseInt(lotData.currentWeight);
+
+					// Placing Transaction Date value into a string variable
+					const str = lotData.customData['TransactionDate.MeasureTime'].dateTimeValue;
+
+					// Slicing off first 10 characters
+					const intakeDate = str.slice(0, 10);
+
+					// Capturing Intake Date into the array
+					intakeDates[i] = intakeDate;
 				}
 				// Getting the sum of weights
 				const sumOfWeights = weights.reduce((accumulator, currentValue) => {
@@ -325,6 +304,7 @@ window.onload = function() {
 	getLotImage('2d79f311-eb5f-4a4a-96b8-ec9adfca1617').then((lotImage) => {
 		document.getElementById('133a7617-5ff0-437e-a5f8-e5ac1e9cc9ac').src = 'data:image/jpg;base64,' + lotImage;
 	});
+	// End of Section 4 ******************************************************** /
 };
 
 (function($) {

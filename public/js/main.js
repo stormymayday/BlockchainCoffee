@@ -263,8 +263,11 @@ window.onload = function() {
 			if (lotHistory[key].nodeId === '01b66b57-c0a0-481c-abb0-57be005096da') {
 				// Getting the lotIDs Array
 				const lotIDs = lotHistory[key].lotIds;
+				// Placeholder object
 				const lotData = {};
+				// Weights array
 				const weights = [];
+				// Dates array
 				const intakeDates = [];
 				for (i = 0; i < lotIDs.length; i++) {
 					// API call and object assignment
@@ -282,14 +285,18 @@ window.onload = function() {
 					// Capturing Intake Date into the array
 					intakeDates[i] = intakeDate;
 				}
+
 				// Getting the sum of weights
 				const sumOfWeights = weights.reduce((accumulator, currentValue) => {
 					return accumulator + currentValue;
 				}, 0);
-				// Sorting Dates Array
+
+				// Sorting the Dates Array
 				intakeDates.sort();
 
+				// Testing
 				console.log(sumOfWeights, weights, intakeDates);
+
 				// DOM Manipulations:
 				document.getElementById(
 					'total-intake-weight'
@@ -300,6 +307,17 @@ window.onload = function() {
 			}
 		});
 	});
+
+	// Column 1 - Milling Video
+	getLotVideo('a95ac5f7-d8d9-42aa-aa2c-a8edabd3cd95').then((lotVideo) => {
+		document.getElementById('milling-video').src = 'data:video/mp4;base64,' + lotVideo;
+	});
+
+	// Column 1 - Hand Sorting Image
+	getLotImage('14d5be6c-8f0e-48dd-88ca-46a1958a2fcf').then((lotImage) => {
+		document.getElementById('hand-sorting-picture').src = 'data:image/jpg;base64,' + lotImage;
+	});
+
 	// // Section 4 Col 2 Image
 	getLotImage('2d79f311-eb5f-4a4a-96b8-ec9adfca1617').then((lotImage) => {
 		document.getElementById('133a7617-5ff0-437e-a5f8-e5ac1e9cc9ac').src = 'data:image/jpg;base64,' + lotImage;

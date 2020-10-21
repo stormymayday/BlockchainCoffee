@@ -300,10 +300,10 @@ window.onload = function() {
 				// DOM Manipulations:
 				document.getElementById(
 					'total-intake-weight'
-				).innerHTML = `Total Intake Weight: ${sumOfWeights} Lbs from ${weights.length} separate intakes.`;
+				).innerHTML = `Total Intake Weight: ${sumOfWeights} Lbs from ${weights.length} separate intakes`;
 				document.getElementById(
 					'intake-dates'
-				).innerHTML = `Intake dates between ${intakeDates[0]} to ${intakeDates[intakeDates.length - 1]}.`;
+				).innerHTML = `Intake Dates: between ${intakeDates[0]} to ${intakeDates[intakeDates.length - 1]}`;
 			}
 		});
 	});

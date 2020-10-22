@@ -3019,38 +3019,53 @@ button:disabled,
 }
 
 /* Header */
-
 #header {
 	padding: 9em 0 9em 0;
 	background-color: #4686a0;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed, fixed;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/coffee-hero-min.jpg);
-	background-size: cover;
-	background-position: center;
+	/* background-size: cover;
+	background-position: center; */
 	/* background-image: url("images/overlay2.png"), url("images/overlay3.svg"),
 		linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2); */
 	/* background-image: url("images/overlay2.png"), url("images/overlay4.svg"),
 		linear-gradient(45deg, #845ec2, #bd38b2, #d63423); */
 	/* background-image: url("images/coffee.jpg"), url("images/overlay4.svg"),
 		linear-gradient(45deg, #845ec2, #bd38b2, #d63423); */
-	/* background-position: top left, center center, center center;
-	background-size: auto, cover, cover; */
+	background-position: top left, center center, center center;
+	background-size: auto, cover, cover;
 	overflow: hidden;
 	position: relative;
 	text-align: center;
 	height: 100vh;
 }
 
+#header .inner h1 {
+	margin-top: 20%;
+}
+
+#header .inner p {
+	color: #fff;
+}
+
+#header .icons {
+	margin-top: 2%;
+}
+
 .logo {
 	height: 100px;
 	width: auto;
 	float: left;
+	padding-left: 5%;
+	padding-top: 1%;
 }
 
 .main-nav {
 	float: right;
 	list-style-type: none;
+	padding-top: 3.5%;
+	padding-right: 5%;
 }
 
 .main-nav li {
@@ -3397,7 +3412,8 @@ body.is-preload #header:after {
 	/* Header */
 
 	#header {
-		padding: 6em 0 6em 0;
+		/* padding: 6em 0 6em 0; */
+		padding: 0 0 6em 0;
 	}
 }
 
@@ -3447,7 +3463,8 @@ body.is-preload #header:after {
 	/* Header */
 
 	#header {
-		padding: 5em 0 5em 0;
+		/* padding: 5em 0 5em 0; */
+		padding: 0 0 5em 0;
 		background-attachment: scroll;
 	}
 
@@ -3487,7 +3504,8 @@ body.is-preload #header:after {
 	/* Header */
 
 	#header {
-		padding: 8em 3em 8em 3em;
+		/* padding: 8em 3em 8em 3em; */
+		padding: 0 3em 8em 3em;
 	}
 
 	/* Footer */
@@ -3580,7 +3598,8 @@ body.is-preload #header:after {
 	/* Header */
 
 	#header {
-		padding: 4em 3em 4em 3em;
+		/* padding: 4em 3em 4em 3em; */
+		padding: 0 3em 4em 3em;
 	}
 
 	#header .actions {

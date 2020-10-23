@@ -3061,6 +3061,14 @@ button:disabled,
 	padding-top: 1%;
 }
 
+.BEXT360-logo {
+	height: 1em;
+}
+
+.BEXT360-logo-medium {
+	height: 2em;
+}
+
 .main-nav {
 	float: right;
 	list-style-type: none;

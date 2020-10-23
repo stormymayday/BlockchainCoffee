@@ -163,7 +163,10 @@ async function getLotVideo(videoID) {
 
 async function getLotImage(imageID) {
 	const imageid = imageID;
-	console.log(`This is the lot image ID = ${imageID}`);
+
+	// Tesing
+	// console.log(`This is the lot image ID = ${imageID}`);
+
 	// Local Path
 	const api_url = `getlotimage/${imageid}`;
 
@@ -184,8 +187,15 @@ window.onload = function() {
 	const url = new URL(url_string);
 	const lotid = url.searchParams.get('lotid');
 
-	// Section 3 *************************************************************** /
+	// Section 2 *************************************************************** /
+	// Section 3 Column 1 - Image - Roasting
+	getLotImage('35668eda-ecc8-48a2-a8ff-20ae6ad052f4').then((lotImage) => {
+		document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
+	});
 
+	// End of Section 2 ******************************************************** /
+
+	// Section 3 *************************************************************** /
 	// Section 3 Column 1 - QC Intake Green Node
 	getNode('1dc41db1-f7b5-45f1-8810-432e6be023cb').then((QCIntakeGreen) => {
 		document.getElementById(
@@ -384,18 +394,20 @@ window.onload = function() {
 				dePupledDates.sort();
 
 				// Testing
-				console.log(sumOfAbsorbedWeights, sumOfDePupledWeights, dePupledDates);
+				// console.log(sumOfAbsorbedWeights, sumOfDePupledWeights, dePupledDates);
 
 				// DOM Manipulations:
 				document.getElementById(
 					'total-absorbed-weight'
-				).innerHTML = `Total Absorbed Weight: ${sumOfAbsorbedWeights} Lbs`;
+				).innerHTML = ` ${sumOfAbsorbedWeights} Lbs <img src="/images/BEXT360_logo_black.png" alt="BEXT360-logo" class="BEXT360-logo">`;
 				document.getElementById(
 					'total-de-pulped-weight'
-				).innerHTML = `Total De-pulped Weight ${sumOfDePupledWeights} Lbs`;
+				).innerHTML = ` ${sumOfDePupledWeights} Lbs <img src="/images/BEXT360_logo_black.png" alt="BEXT360-logo" class="BEXT360-logo">`;
 				document.getElementById(
 					'de-pluped-between-dates'
-				).innerHTML = `De-pluped between: ${dePupledDates[0]} and ${dePupledDates[dePupledDates.length - 1]}`;
+				).innerHTML = ` ${dePupledDates[0]} and ${dePupledDates[
+					dePupledDates.length - 1
+				]} <img src="/images/BEXT360_logo_black.png" alt="BEXT360-logo" class="BEXT360-logo">`;
 			}
 		});
 	});
@@ -405,7 +417,7 @@ window.onload = function() {
 		document.getElementById('De-Pulping-Cherry-video').src = 'data:video/mp4;base64,' + lotVideo;
 	});
 
-	// Section 5 Column 2 - IDEGWPHarvestCoffee
+	// Section 5 Column 2 - IDEGWPHarvestCoffee - STATIC
 	getLot('5c955a2e-90ef-6bf4-fa8a-1813ee5d4687').then((res) => {
 		document.getElementById('picked-by').innerHTML = `Picked by: ${res.customData['FarmerName.Measure'].value}`;
 		document.getElementById('picked-cherries-weight').innerHTML = `Picked Cherries Weight: ${res.customData[
@@ -414,9 +426,44 @@ window.onload = function() {
 		document.getElementById('date-picked').innerHTML = `Picked Cherries Weight: ${res.customData[
 			'HarvestDate.MeasureTime'
 		].dateTimeValue}`;
-		document.getElementById('variety').innerHTML = `Variety: ${res.customData['Varietal.Measure'].value}`;
+		document.getElementById('variety').innerHTML = `Variety: ${res.customData['Varietal.Measure'].value} </br>
+		<img src="/images/BEXT360_logo_black.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 		document.getElementById('farmer-picutre').src = res.customData['LotFarmerProductImage.Measure'].value;
 	});
+
+	// Section 5 Column 2 - IDEGWPHarvestCoffee - RANDOM
+	// getLotHistory('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((lotHistory) => {
+	// 	Object.keys(lotHistory).forEach(async function(key) {
+	// 		if (lotHistory[key].nodeId === '6f93c9fc-6a58-41a7-9880-413b6ed87ecd') {
+	// 			// Getting the lotIDs Array
+	// 			const lotIDs = lotHistory[key].lotIds;
+
+	// 			// Pulling Random lot into the Placeholder object
+	// 			const lotData = await getLot(lotIDs[Math.floor(Math.random() * lotIDs.length + 1)]);
+
+	// 			console.log(
+	// 				`LotID: ${lotData.lotId}, Farmer Name: ${lotData.customData['FarmerName.Measure']
+	// 					.value}, Total Value: ${lotData.customData['TotalValue.Measure'].value}, Harvest Date: ${lotData
+	// 					.customData['HarvestDate.MeasureTime'].dateTimeValue}, Varietal: ${lotData.customData[
+	// 					'Varietal.Measure'
+	// 				].value}, Farmer Picture: ${lotData.customData['LotFarmerProductImage.Measure'].value}`
+	// 			);
+
+	// 			// DOM Manipulations:
+	// 			document.getElementById('picked-by').innerHTML = `Picked by: ${lotData.customData['FarmerName.Measure']
+	// 				.value}`;
+	// 			document.getElementById('picked-cherries-weight').innerHTML = `Picked Cherries Weight: ${lotData
+	// 				.customData['TotalValue.Measure'].value} Lbs`;
+	// 			document.getElementById('date-picked').innerHTML = `Picked Cherries Weight: ${lotData.customData[
+	// 				'HarvestDate.MeasureTime'
+	// 			].dateTimeValue}`;
+	// 			document.getElementById('variety').innerHTML = `Variety: ${lotData.customData['Varietal.Measure']
+	// 				.value}`;
+	// 			document.getElementById('farmer-picutre').src =
+	// 				lotData.customData['LotFarmerProductImage.Measure'].value;
+	// 		}
+	// 	});
+	// });
 	// End of Section 5 ******************************************************** /
 };
 

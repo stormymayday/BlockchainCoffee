@@ -418,14 +418,12 @@ window.onload = function() {
 
 	// Section 5 Column 2 - IDEGWPHarvestCoffee - STATIC
 	getLot('5c955a2e-90ef-6bf4-fa8a-1813ee5d4687').then((res) => {
-		document.getElementById('picked-by').innerHTML = `Picked by: ${res.customData['FarmerName.Measure'].value}`;
-		document.getElementById('picked-cherries-weight').innerHTML = `Picked Cherries Weight: ${res.customData[
-			'TotalValue.Measure'
-		].value} Lbs`;
-		document.getElementById('date-picked').innerHTML = `Picked Cherries Weight: ${res.customData[
-			'HarvestDate.MeasureTime'
-		].dateTimeValue}`;
-		document.getElementById('variety').innerHTML = `Variety: ${res.customData['Varietal.Measure'].value} </br>
+		document.getElementById('picked-by').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
+		document.getElementById('picked-cherries-weight').innerHTML = ` ${res.customData['TotalValue.Measure']
+			.value} Lbs`;
+		document.getElementById('date-picked').innerHTML = ` ${res.customData['HarvestDate.MeasureTime']
+			.dateTimeValue}`;
+		document.getElementById('variety').innerHTML = ` ${res.customData['Varietal.Measure'].value} </br>
 		<img src="/images/BEXT360_logo_black.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 		document.getElementById('farmer-picutre').src = res.customData['LotFarmerProductImage.Measure'].value;
 	});

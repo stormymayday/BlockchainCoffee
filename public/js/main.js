@@ -207,10 +207,10 @@ window.onload = function() {
 	getLot('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((CombinedLotAtQCCCRoastery2020) => {
 		document.getElementById(
 			'Lot-2020-Combined-lot-at-QCCC-roastery-date'
-		).innerHTML = `Date: ${CombinedLotAtQCCCRoastery2020.customData['TransportDate.MeasureTime'].dateTimeValue}`;
+		).innerHTML = ` ${CombinedLotAtQCCCRoastery2020.customData['TransportDate.MeasureTime'].dateTimeValue}`;
 		document.getElementById(
 			'Lot-2020-Combined-lot-at-QCCC-roastery-CollectorName'
-		).innerHTML = `Received by: ${CombinedLotAtQCCCRoastery2020.customData['CollectorName.Measure'].value}`;
+		).innerHTML = ` ${CombinedLotAtQCCCRoastery2020.customData['CollectorName.Measure'].value}`;
 	});
 
 	// Section 3 Column - Vido 2020 Combined lot at QCCC roastery Video
@@ -223,13 +223,13 @@ window.onload = function() {
 	getNode('b2d1d8b3-498b-424e-87df-3050aa237115').then((PortOfOaklandGreenImport) => {
 		document.getElementById(
 			'Node-Port-of-Oakland-Green-Import-city-state-country'
-		).innerHTML = `Imported At: ${PortOfOaklandGreenImport.defaultLocation.city}, ${PortOfOaklandGreenImport
-			.defaultLocation.state}, ${PortOfOaklandGreenImport.defaultLocation.country}`;
+		).innerHTML = ` ${PortOfOaklandGreenImport.defaultLocation.city}, ${PortOfOaklandGreenImport.defaultLocation
+			.state}, ${PortOfOaklandGreenImport.defaultLocation.country}`;
 	});
 
 	// Section 3 Column - Combined lot 2020 Import Date
 	getLot('8f43a6a8-52aa-45d6-9bba-cbf8f823037d').then((CombinedLot2020) => {
-		document.getElementById('Lot-Combined-lot-2020-import-date').innerHTML = `Date: ${CombinedLot2020.customData[
+		document.getElementById('Lot-Combined-lot-2020-import-date').innerHTML = ` ${CombinedLot2020.customData[
 			'ImportDate.MeasureTime'
 		].dateTimeValue}`;
 	});
@@ -243,13 +243,13 @@ window.onload = function() {
 	getNode('c51f7616-5fb6-4416-be83-c98dc0d25df1').then((PuertoCortesGreenExport) => {
 		document.getElementById(
 			'Node-Puerto-Cortes-Green-Export-city-state-country'
-		).innerHTML = `Exported From: ${PuertoCortesGreenExport.defaultLocation.city}, ${PuertoCortesGreenExport
-			.defaultLocation.state}, ${PuertoCortesGreenExport.defaultLocation.country}`;
+		).innerHTML = ` ${PuertoCortesGreenExport.defaultLocation.city}, ${PuertoCortesGreenExport.defaultLocation
+			.state}, ${PuertoCortesGreenExport.defaultLocation.country}`;
 	});
 
 	// Section 3 Column - Combined lot 2020 Export Date
 	getLot('f1222ba7-0c10-4abf-b49f-c197be1ec8e1').then((CombinedLot2020) => {
-		document.getElementById('Lot-Combined-lot-2020-export-date').innerHTML = `Date: ${CombinedLot2020.customData[
+		document.getElementById('Lot-Combined-lot-2020-export-date').innerHTML = ` ${CombinedLot2020.customData[
 			'ExportDate.MeasureTime'
 		].dateTimeValue}`;
 	});
@@ -264,18 +264,15 @@ window.onload = function() {
 
 	// Section 4 Column - Milling Location, Miller, and Current Lot Weight
 	getLot('b0c1846f-8cef-410e-a2ec-f6d9f3843e9f').then((res) => {
-		document.getElementById('milled-on').innerHTML = `Milled on: ${res.customData['MillingDate.MeasureTime']
-			.dateTimeValue}`;
-		document.getElementById('miller').innerHTML = `Miller: ${res.customData['FarmerName.Measure'].value}`;
-		document.getElementById(
-			'current-lot-weight'
-		).innerHTML = `Lot Current Weight: ${res.currentWeight} ${res.currentWeightUnit}`;
+		document.getElementById('milled-on').innerHTML = ` ${res.customData['MillingDate.MeasureTime'].dateTimeValue}`;
+		document.getElementById('miller').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
+		document.getElementById('current-lot-weight').innerHTML = ` ${res.currentWeight} ${res.currentWeightUnit}`;
 	});
 
 	// Section 4 Column - Milling Location
 	getNode('8a14226b-873b-4893-bedc-a9699dc28472').then((res) => {
-		document.getElementById('milling-location').innerHTML = `Location: ${res.defaultLocation.city}, ${res
-			.defaultLocation.state}, ${res.defaultLocation.country}`;
+		document.getElementById('milling-location').innerHTML = ` ${res.defaultLocation.city}, ${res.defaultLocation
+			.state}, ${res.defaultLocation.country}`;
 	});
 
 	// Section 4 Column - Combined Lot Weight & Start and End Dates
@@ -321,10 +318,10 @@ window.onload = function() {
 				// DOM Manipulations:
 				document.getElementById(
 					'total-intake-weight'
-				).innerHTML = `Total Intake Weight: ${sumOfWeights} Lbs from ${weights.length} separate intakes`;
-				document.getElementById(
-					'intake-dates'
-				).innerHTML = `Intake Dates between: ${intakeDates[0]} and ${intakeDates[intakeDates.length - 1]}`;
+				).innerHTML = ` ${sumOfWeights} Lbs from ${weights.length} separate intakes`;
+				document.getElementById('intake-dates').innerHTML = ` ${intakeDates[0]} and ${intakeDates[
+					intakeDates.length - 1
+				]}`;
 			}
 		});
 	});
@@ -424,7 +421,7 @@ window.onload = function() {
 		document.getElementById('date-picked').innerHTML = ` ${res.customData['HarvestDate.MeasureTime']
 			.dateTimeValue}`;
 		document.getElementById('variety').innerHTML = ` ${res.customData['Varietal.Measure'].value} </br>
-		<img src="/images/BEXT360_logo_black.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+		<strong>Powered By</strong><img src="/images/BEXT360_logo_black.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 		document.getElementById('farmer-picutre').src = res.customData['LotFarmerProductImage.Measure'].value;
 	});
 

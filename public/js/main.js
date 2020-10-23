@@ -199,10 +199,8 @@ window.onload = function() {
 	// Section 3 *************************************************************** /
 	// Section 3 Column 1 - QC Intake Green Node
 	getNode('1dc41db1-f7b5-45f1-8810-432e6be023cb').then((QCIntakeGreen) => {
-		document.getElementById(
-			'Node-QC-Intake-Green-defaultLocation-city-state-country'
-		).innerHTML = `Roaster Received in: ${QCIntakeGreen.defaultLocation.city}, ${QCIntakeGreen.defaultLocation
-			.state}, ${QCIntakeGreen.defaultLocation.country}`;
+		document.getElementById('Node-QC-Intake-Green-defaultLocation-city-state-country').innerHTML = ` ${QCIntakeGreen
+			.defaultLocation.city}, ${QCIntakeGreen.defaultLocation.state}, ${QCIntakeGreen.defaultLocation.country}`;
 	});
 
 	// Section 3 Column - 2020 Combined lot at QCCC roastery Date & Collector's Name

@@ -210,7 +210,9 @@ window.onload = function() {
 		).innerHTML = ` ${CombinedLotAtQCCCRoastery2020.customData['TransportDate.MeasureTime'].dateTimeValue}`;
 		document.getElementById(
 			'Lot-2020-Combined-lot-at-QCCC-roastery-CollectorName'
-		).innerHTML = ` ${CombinedLotAtQCCCRoastery2020.customData['CollectorName.Measure'].value}`;
+		).innerHTML = ` ${CombinedLotAtQCCCRoastery2020.customData['CollectorName.Measure'].value}
+		</br>
+		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 	});
 
 	// Section 3 Column - Vido 2020 Combined lot at QCCC roastery Video
@@ -231,7 +233,9 @@ window.onload = function() {
 	getLot('8f43a6a8-52aa-45d6-9bba-cbf8f823037d').then((CombinedLot2020) => {
 		document.getElementById('Lot-Combined-lot-2020-import-date').innerHTML = ` ${CombinedLot2020.customData[
 			'ImportDate.MeasureTime'
-		].dateTimeValue}`;
+		].dateTimeValue}
+		</br>
+		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 	});
 
 	// Section 3 Column - Combined Lot 2020 Image of the ship
@@ -251,7 +255,9 @@ window.onload = function() {
 	getLot('f1222ba7-0c10-4abf-b49f-c197be1ec8e1').then((CombinedLot2020) => {
 		document.getElementById('Lot-Combined-lot-2020-export-date').innerHTML = ` ${CombinedLot2020.customData[
 			'ExportDate.MeasureTime'
-		].dateTimeValue}`;
+		].dateTimeValue}
+		</br>
+		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 	});
 	// Section 3 Column - 2020 Combined lot at QCCC roastery Video
 	getLotVideo('c8bf9e23-1ae9-4422-8e00-984566d5663a').then((lotVideo) => {
@@ -266,7 +272,8 @@ window.onload = function() {
 	getLot('b0c1846f-8cef-410e-a2ec-f6d9f3843e9f').then((res) => {
 		document.getElementById('milled-on').innerHTML = ` ${res.customData['MillingDate.MeasureTime'].dateTimeValue}`;
 		document.getElementById('miller').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
-		document.getElementById('current-lot-weight').innerHTML = ` ${res.currentWeight} ${res.currentWeightUnit}`;
+		document.getElementById('current-lot-weight').innerHTML = ` ${res.currentWeight} ${res.currentWeightUnit}</br>
+		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 	});
 
 	// Section 4 Column - Milling Location
@@ -321,7 +328,8 @@ window.onload = function() {
 				).innerHTML = ` ${sumOfWeights} Lbs from ${weights.length} separate intakes`;
 				document.getElementById('intake-dates').innerHTML = ` ${intakeDates[0]} and ${intakeDates[
 					intakeDates.length - 1
-				]}`;
+				]}</br>
+				<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 			}
 		});
 	});
@@ -393,17 +401,12 @@ window.onload = function() {
 				// console.log(sumOfAbsorbedWeights, sumOfDePupledWeights, dePupledDates);
 
 				// DOM Manipulations:
-				document.getElementById(
-					'total-absorbed-weight'
-				).innerHTML = ` ${sumOfAbsorbedWeights} Lbs <img src="/images/BEXT360_logo_black.png" alt="BEXT360-logo" class="BEXT360-logo">`;
-				document.getElementById(
-					'total-de-pulped-weight'
-				).innerHTML = ` ${sumOfDePupledWeights} Lbs <img src="/images/BEXT360_logo_black.png" alt="BEXT360-logo" class="BEXT360-logo">`;
+				document.getElementById('total-absorbed-weight').innerHTML = ` ${sumOfAbsorbedWeights} Lbs`;
+				document.getElementById('total-de-pulped-weight').innerHTML = ` ${sumOfDePupledWeights} Lbs`;
 				document.getElementById(
 					'de-pluped-between-dates'
-				).innerHTML = ` ${dePupledDates[0]} and ${dePupledDates[
-					dePupledDates.length - 1
-				]} <img src="/images/BEXT360_logo_black.png" alt="BEXT360-logo" class="BEXT360-logo">`;
+				).innerHTML = ` ${dePupledDates[0]} and ${dePupledDates[dePupledDates.length - 1]}</br>
+				<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 			}
 		});
 	});
@@ -421,7 +424,7 @@ window.onload = function() {
 		document.getElementById('date-picked').innerHTML = ` ${res.customData['HarvestDate.MeasureTime']
 			.dateTimeValue}`;
 		document.getElementById('variety').innerHTML = ` ${res.customData['Varietal.Measure'].value} </br>
-		<strong>Powered By</strong><img src="/images/BEXT360_logo_black.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 		document.getElementById('farmer-picutre').src = res.customData['LotFarmerProductImage.Measure'].value;
 	});
 

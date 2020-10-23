@@ -273,7 +273,7 @@ window.onload = function() {
 		document.getElementById('milled-on').innerHTML = ` ${res.customData['MillingDate.MeasureTime'].dateTimeValue}`;
 		document.getElementById('miller').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
 		document.getElementById('current-lot-weight').innerHTML = ` ${res.currentWeight} ${res.currentWeightUnit}</br>
-		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+		<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 	});
 
 	// Section 4 Column - Milling Location
@@ -329,7 +329,7 @@ window.onload = function() {
 				document.getElementById('intake-dates').innerHTML = ` ${intakeDates[0]} and ${intakeDates[
 					intakeDates.length - 1
 				]}</br>
-				<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+				<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 			}
 		});
 	});

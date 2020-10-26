@@ -182,39 +182,55 @@ async function getLotImage(imageID) {
 	return base64blob;
 }
 
-// Grabbing LotID from the URL & calling a function
 window.onload = function() {
 	const url_string = window.location.href.toLowerCase();
 	const url = new URL(url_string);
 	const lotid = url.searchParams.get('lotid');
+
+	// Testing the LotID
 	// console.log(`Testing the lot id ${lotid}`);
 
-	// Section Roasting *************************************************************** /
-	// Section Roasting Column
-	getLot(lotid).then((res) => {
-		document.getElementById('lot-cuppers-notes').innerHTML = ` ${res.customData['CuppersNotes.Measure'].value}`;
-		document.getElementById('lot-roast-date').innerHTML = ` ${res.customData['RoastDate.MeasureTime']
-			.dateTimeValue}`;
-		document.getElementById('lot-farmer-name').innerHTML = ` ${res.customData['FarmerName.Measure'].value}</br>
-		<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+	// Roasting *************************************************************** /
+	//
+	if (lotid) {
+		// Roasting LotID from the URL
+		getLot(lotid).then((res) => {
+			document.getElementById('lot-cuppers-notes').innerHTML = ` ${res.customData['CuppersNotes.Measure'].value}`;
+			document.getElementById('lot-roast-date').innerHTML = ` ${res.customData['RoastDate.MeasureTime']
+				.dateTimeValue}`;
+			document.getElementById('lot-farmer-name').innerHTML = ` ${res.customData['FarmerName.Measure'].value}</br>
+			<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 
-		// Roasting Location
-		getNode('73427e9e-e29d-4b33-9a27-95244bdb0370').then((res) => {
-			document.getElementById('node-city').innerHTML = ` ${res.defaultLocation.city}`;
-			document.getElementById('node-state').innerHTML = ` ${res.defaultLocation.state}`;
-			document.getElementById('node-country').innerHTML = ` ${res.defaultLocation.country}`;
+			// Roasting Location
+			getNode('73427e9e-e29d-4b33-9a27-95244bdb0370').then((res) => {
+				document.getElementById('node-city').innerHTML = ` ${res.defaultLocation.city}`;
+				document.getElementById('node-state').innerHTML = ` ${res.defaultLocation.state}`;
+				document.getElementById('node-country').innerHTML = ` ${res.defaultLocation.country}`;
+			});
+
+			// Section Roasting Column Image - Roasting
+			getLotImage(res.images[0].id).then((lotImage) => {
+				document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
+			});
+			// End of Section 2 ******************************************************** /
 		});
-
-		// Section Roasting Column Image - Roasting
-		getLotImage(res.images[0].id).then((lotImage) => {
+	} else {
+		// Default Roasting Lot Logic
+		document.getElementById('node-city').innerHTML = ` default node data`;
+		document.getElementById('node-state').innerHTML = ` default node data`;
+		document.getElementById('node-country').innerHTML = ` default node data`;
+		document.getElementById('lot-cuppers-notes').innerHTML = ` default lot data`;
+		document.getElementById('lot-roast-date').innerHTML = ` default lot data`;
+		document.getElementById('lot-farmer-name').innerHTML = ` default lot data</br>
+		<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+		getLotImage('6b6f8ee4-fc20-425e-8a38-089e6258b5c1').then((lotImage) => {
 			document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
 		});
-		// End of Section 2 ******************************************************** /
-	});
+	}
 
-	// End Roasting  ****************************************************************** /
+	// Roasting End  ****************************************************************** /
 
-	// Section 3 *************************************************************** /
+	// Journey Highlights ************************************************************* /
 	// Section 3 Column 1 - QC Intake Green Node
 	getNode('1dc41db1-f7b5-45f1-8810-432e6be023cb').then((QCIntakeGreen) => {
 		document.getElementById('Node-QC-Intake-Green-defaultLocation-city-state-country').innerHTML = ` ${QCIntakeGreen
@@ -282,7 +298,7 @@ window.onload = function() {
 		document.getElementById('loading-truck-video').src = 'data:video/mp4;base64,' + lotVideo;
 	});
 
-	// End of Section 3 ******************************************************** /
+	// Journey Highlights End ******************************************************** /
 
 	// Section 4 *************************************************************** /
 

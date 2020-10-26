@@ -2925,27 +2925,25 @@ button:disabled,
 	background-attachment: fixed, fixed;
 	background-image: url("images/overlay2.png"), url("images/overlay4.svg"),
 		linear-gradient(45deg, #4361c2, #4fa49a 50%, #9dc66b 95%);
-	/* background-image: url("images/overlay2.png"), url("images/overlay4.svg"),
-		linear-gradient(45deg, #845ec2, #bd38b2, #d63423); */
-	/* background-image: url("images/overlay1.png"), url("../../images/header.jpg"); */
 	background-size: auto, cover;
 }
 
-/* Catratcha Section */
-.main.catracha {
+/* Processing & Export Section ***************/
+.main.processing-and-export {
 	background-color: #333;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/mural.JPG);
 	background-size: auto, cover;
+	background-position: top left, center center, center center;
 	color: #fff;
 }
 
-.main.catracha h2 {
+.main.processing-and-export h2 {
 	color: #fff !important;
 }
 
-.main.catracha header.major:after {
+.main.processing-and-export header.major:after {
 	background: #fff;
 	content: '';
 	display: inline-block;
@@ -2954,26 +2952,27 @@ button:disabled,
 	width: 6em;
 }
 
-.main.catracha h3 {
+.main.processing-and-export h3 {
 	color: #fff !important;
 }
-/* Catratcha Section End */
+/* Processing & Export Section End ***********/
 
-/* QCC Section *****/
-.main.qcc {
+/* Roasting Section **************************/
+.main.roasting {
 	background-color: #333;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/QCCC-hero.JPG);
 	background-size: auto, cover;
+	background-position: top left, center center, center center;
 	color: #fff;
 }
 
-.main.qcc h2 {
+.main.roasting h2 {
 	color: #fff !important;
 }
 
-.main.qcc header.major:after {
+.main.roasting header.major:after {
 	background: #fff;
 	content: '';
 	display: inline-block;
@@ -2982,10 +2981,10 @@ button:disabled,
 	width: 6em;
 }
 
-.main.qcc h3 {
+.main.roasting h3 {
 	color: #fff !important;
 }
-/* QCC Section End */
+/* Roasting Section End **********************/
 
 .main.style2 a {
 	border-bottom-color: rgba(255, 255, 255, 0.5);

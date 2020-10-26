@@ -187,14 +187,32 @@ window.onload = function() {
 	const url_string = window.location.href.toLowerCase();
 	const url = new URL(url_string);
 	const lotid = url.searchParams.get('lotid');
+	// console.log(`Testing the lot id ${lotid}`);
 
-	// Section 2 *************************************************************** /
-	// Section 3 Column 1 - Image - Roasting
-	getLotImage('35668eda-ecc8-48a2-a8ff-20ae6ad052f4').then((lotImage) => {
-		document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
+	// Section Roasting *************************************************************** /
+	// Section Roasting Column
+	getLot(lotid).then((res) => {
+		document.getElementById('lot-cuppers-notes').innerHTML = ` ${res.customData['CuppersNotes.Measure'].value}`;
+		document.getElementById('lot-roast-date').innerHTML = ` ${res.customData['RoastDate.MeasureTime']
+			.dateTimeValue}`;
+		document.getElementById('lot-farmer-name').innerHTML = ` ${res.customData['FarmerName.Measure'].value}</br>
+		<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+
+		// Roasting Location
+		getNode('73427e9e-e29d-4b33-9a27-95244bdb0370').then((res) => {
+			document.getElementById('node-city').innerHTML = ` ${res.defaultLocation.city}`;
+			document.getElementById('node-state').innerHTML = ` ${res.defaultLocation.state}`;
+			document.getElementById('node-country').innerHTML = ` ${res.defaultLocation.country}`;
+		});
+
+		// Section Roasting Column Image - Roasting
+		getLotImage(res.images[0].id).then((lotImage) => {
+			document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
+		});
+		// End of Section 2 ******************************************************** /
 	});
 
-	// End of Section 2 ******************************************************** /
+	// End Roasting  ****************************************************************** /
 
 	// Section 3 *************************************************************** /
 	// Section 3 Column 1 - QC Intake Green Node

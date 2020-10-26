@@ -2923,8 +2923,7 @@ button:disabled,
 	background-color: #333;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed;
-	background-image: url("images/overlay2.png"), url("images/overlay4.svg"),
-		linear-gradient(45deg, #4361c2, #4fa49a 50%, #9dc66b 95%);
+	background-image: linear-gradient(45deg, #4361c2, #4fa49a 50%, #9dc66b 95%);
 	background-size: auto, cover;
 }
 
@@ -3363,10 +3362,7 @@ body.is-preload #header:after {
 	background-color: #4686a0;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed, fixed;
-	background-image: url("images/overlay2.png"), url("images/overlay4.svg"),
-		linear-gradient(45deg, #4361c2, #4fa49a 50%, #9dc66b 95%);
-	/* background-image: url("images/overlay2.png"), url("images/overlay4.svg"),
-		linear-gradient(45deg, #845ec2, #bd38b2, #d63423); */
+	background-image: linear-gradient(45deg, #4361c2, #4fa49a 50%, #9dc66b 95%);
 	background-position: top left, center center, center center;
 	background-size: auto, cover, cover;
 	text-align: center;

@@ -203,9 +203,7 @@ window.onload = function() {
 
 			// Roasting Location
 			getNode('73427e9e-e29d-4b33-9a27-95244bdb0370').then((res) => {
-				document.getElementById('node-city').innerHTML = ` ${res.defaultLocation.city}`;
-				document.getElementById('node-state').innerHTML = ` ${res.defaultLocation.state}`;
-				document.getElementById('node-country').innerHTML = ` ${res.defaultLocation.country}`;
+				document.getElementById('roasted-at').innerHTML = ` ${res.defaultLocation.city}, ${res.defaultLocation.state}, ${res.defaultLocation.country}`;
 			});
 
 			// Section Roasting Column Image - Roasting
@@ -215,10 +213,8 @@ window.onload = function() {
 			// End of Section 2 ******************************************************** /
 		});
 	} else {
-		// Default Roasting Lot Logic
-		document.getElementById('node-city').innerHTML = ` default node data`;
-		document.getElementById('node-state').innerHTML = ` default node data`;
-		document.getElementById('node-country').innerHTML = ` default node data`;
+		// Default Roasting Lot Logic TO BE IMPLEMENTED
+		document.getElementById('roasted-at').innerHTML = ` default City, default State, default Country`;
 		document.getElementById('lot-cuppers-notes').innerHTML = ` default lot data`;
 		document.getElementById('lot-roast-date').innerHTML = ` default lot data`;
 		document.getElementById('lot-farmer-name').innerHTML = ` default lot data</br>

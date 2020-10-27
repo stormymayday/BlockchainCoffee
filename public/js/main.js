@@ -6,6 +6,7 @@ toggleButton.addEventListener('click', () => {
 	toggleButton.classList.toggle('change');
 });
 
+// Function for making anchors link 100 pixles above the target
 // Applying the offset
 function offsetAnchor() {
 	if (location.hash.length !== 0) {
@@ -385,7 +386,7 @@ window.onload = function() {
 	});
 
 	// Section 4 Column - Milling Video
-	getLotVideo('a95ac5f7-d8d9-42aa-aa2c-a8edabd3cd95').then((lotVideo) => {
+	getLotVideo('5b80c8dc-1dac-4eaf-8674-75052d83d0c5').then((lotVideo) => {
 		document.getElementById('milling-video').src = 'data:video/mp4;base64,' + lotVideo;
 	});
 
@@ -462,7 +463,8 @@ window.onload = function() {
 	});
 
 	// Section 5 Column 1 - Video - De-Pulping Cherry
-	getLotVideo('4b7a79e3-965a-419f-a408-454ffaf051e7').then((lotVideo) => {
+	getLotVideo('44a78372-8b4e-4df7-880a-3292212403cf').then((lotVideo) => {
+		console.log(lotVideo);
 		document.getElementById('De-Pulping-Cherry-video').src = 'data:video/mp4;base64,' + lotVideo;
 	});
 

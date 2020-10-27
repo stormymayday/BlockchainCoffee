@@ -6,6 +6,25 @@ toggleButton.addEventListener('click', () => {
 	toggleButton.classList.toggle('change');
 });
 
+// Applying the offset
+function offsetAnchor() {
+	if (location.hash.length !== 0) {
+	  window.scrollTo(window.scrollX, window.scrollY - 100);
+	}
+  }
+  
+  // Capturing click events of all a elements with href starting with #
+  window.addEventListener("hashchange", function(event) {
+	// Click events are captured before hashchanges. Timeout
+	// causes offsetAnchor to be called after the page jump.
+	window.setTimeout(function() {
+	  offsetAnchor();
+	}, 0);
+  });
+  
+  // Setting the offset when entering page with hash present in the url
+  window.setTimeout(offsetAnchor, 0);
+
 // async function getLotImage(imageID) {
 // 	const imageid = imageID;
 // 	console.log(`This is the lot image ID = ${imageID}`);

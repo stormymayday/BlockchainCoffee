@@ -231,7 +231,9 @@ window.onload = function() {
 			getLotImage(res.images[0].id).then((lotImage) => {
 				document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
 			});
-			// End of Section 2 ******************************************************** /
+
+			// Bext Marketplace link from the URL
+			document.getElementById('bext-marketplace-link').href = `https://www.bextmarketplace.com/#/mapsv2/${lotid}?OwnerOrganizationId=f0c3cd58-2055-46e3-b229-1a091d1fb3fe`;
 		});
 	} else {
 		// Default Roasting Lot Logic TO BE IMPLEMENTED
@@ -243,6 +245,8 @@ window.onload = function() {
 		getLotImage('6b6f8ee4-fc20-425e-8a38-089e6258b5c1').then((lotImage) => {
 			document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
 		});
+		// Bext Marketplace link default
+		document.getElementById('bext-marketplace-link').href = `https://www.bextmarketplace.com`;
 	}
 
 	// Roasting End  ****************************************************************** /
@@ -268,6 +272,7 @@ window.onload = function() {
 
 	// Section 3 Column - Vido 2020 Combined lot at QCCC roastery Video
 	getLotVideo('6d48b0b4-25d3-469e-9d60-a657724ca296').then((lotVideo) => {
+		// console.log(lotVideo);
 		document.getElementById('Lot-2020-Combined-lot-at-QCCC-roastery-video').src =
 			'data:video/mp4;base64,' + lotVideo;
 	});
@@ -312,6 +317,7 @@ window.onload = function() {
 	});
 	// Section 3 Column - 2020 Combined lot at QCCC roastery Video
 	getLotVideo('c8bf9e23-1ae9-4422-8e00-984566d5663a').then((lotVideo) => {
+		// console.log(lotVideo);
 		document.getElementById('loading-truck-video').src = 'data:video/mp4;base64,' + lotVideo;
 	});
 

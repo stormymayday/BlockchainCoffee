@@ -1,10 +1,35 @@
-// Navbar Scripr
+// Navbar Script
 const toggleButton = document.getElementsByClassName('toggle-button')[0];
 const navbarLinks = document.getElementsByClassName('navbar-links')[0];
 toggleButton.addEventListener('click', () => {
 	navbarLinks.classList.toggle('activated');
 	toggleButton.classList.toggle('change');
 });
+
+// Social Media Share Links: 
+/* Taken from:
+https://crunchify.com/list-of-all-social-sharing-urls-for-handy-reference-social-media-sharing-buttons-without-javascript/
+
+Facebook:
+https://www.facebook.com/sharer.php?u=[post-url]
+
+Twitter:
+https://twitter.com/share?url=[post-url]&text=[post-title]&via=[via]&hashtags=[hashtags]
+*/
+
+const facebookBtn = document.querySelector(".facebook-btn");
+const twitterBtn = document.querySelector(".twitter-btn");
+
+function initSocialMediaLinks() {
+	let postUrl = encodeURI(document.location.href);
+	let postTitle = encodeURI("Hey everyone, please check out this Blockchain Coffee Beans website: ");
+
+	facebookBtn.setAttribute("href", `https://www.facebook.com/sharer.php?u=${postUrl}`);
+	twitterBtn.setAttribute("href", `https://twitter.com/share?url=${postUrl}&text=${postTitle}`);
+}
+
+initSocialMediaLinks();
+// Social Media Share Links End
 
 // Function for making anchors link 100 pixles above the target
 // Applying the offset
@@ -209,7 +234,7 @@ window.onload = function() {
 	const lotid = url.searchParams.get('lotid');
 
 	// Testing the LotID
-	console.log(`Testing the lot id ${lotid}`);
+	// console.log(`Testing the lot id ${lotid}`);
 
 	// Roasting *************************************************************** /
 	// 
@@ -490,6 +515,7 @@ window.onload = function() {
 	});
 
 	// Section 5 Column 2 - IDEGWPHarvestCoffee - RANDOM
+
 	// getLotHistory('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((lotHistory) => {
 	// 	Object.keys(lotHistory).forEach(async function(key) {
 	// 		if (lotHistory[key].nodeId === '6f93c9fc-6a58-41a7-9880-413b6ed87ecd') {
@@ -549,27 +575,6 @@ window.onload = function() {
 // 	// Scrolly.
 // 	$('.scrolly').scrolly();
 // })(jQuery);
-
-// $(function() {
-// 	$.ajax({
-// 		url: 'https://bext360api.azure-api.net/retail/v1/getnode/3b919eb4-416a-49f0-b7c9-60c6cd2adc62',
-// 		beforeSend: function(xhrObj) {
-// 			// Request headers
-// 			xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', '1ae21229feda4e11870d9066d2b483f0');
-// 			// xhrObj.setRequestHeader("Access-Control-Allow-Origin", "*");
-// 		},
-// 		type: 'GET'
-// 		// Request body
-// 		// data: "{body}",
-// 	})
-// 		.done(function(data) {
-// 			console.log('success');
-// 			console.log(data);
-// 		})
-// 		.fail(function() {
-// 			console.log('error');
-// 		});
-// });
 
 // Not Used
 // function getNodeName(nodeId) {

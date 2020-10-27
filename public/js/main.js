@@ -464,7 +464,7 @@ window.onload = function() {
 
 	// Section 5 Column 1 - Video - De-Pulping Cherry
 	getLotVideo('44a78372-8b4e-4df7-880a-3292212403cf').then((lotVideo) => {
-		console.log(lotVideo);
+		// console.log(lotVideo);
 		document.getElementById('De-Pulping-Cherry-video').src = 'data:video/mp4;base64,' + lotVideo;
 	});
 

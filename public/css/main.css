@@ -2932,7 +2932,7 @@ button:disabled,
 	background-color: #333;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/mural.JPG);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/mural-min.JPG);
 	background-size: auto, cover;
 	background-position: top left, center center, center center;
 	color: #fff;
@@ -2961,7 +2961,7 @@ button:disabled,
 	background-color: #333;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/QCCC-hero.JPG);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/QCCC-hero-min.JPG);
 	background-size: auto, cover;
 	background-position: top left, center center, center center;
 	color: #fff;
@@ -3079,7 +3079,7 @@ button:disabled,
 	background-color: #4686a0;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed, fixed;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/hillside.JPG);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/hillside-min.JPG);
 	background-position: top left, center center, center center;
 	background-size: auto, cover, cover;
 	overflow: hidden;

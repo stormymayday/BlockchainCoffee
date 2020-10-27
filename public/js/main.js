@@ -246,7 +246,7 @@ window.onload = function() {
 			document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
 		});
 		// Bext Marketplace link default
-		document.getElementById('bext-marketplace-link').href = `https://www.bextmarketplace.com`;
+		document.getElementById('bext-marketplace-link').href = `https://www.bextmarketplace.com/#/mapsv2/a58fc3bf-94fd-4f0f-bd37-0947d8ba4146?OwnerOrganizationId=f0c3cd58-2055-46e3-b229-1a091d1fb3fe`;
 	}
 
 	// Roasting End  ****************************************************************** /

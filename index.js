@@ -57,7 +57,7 @@ app.get('/getlot/:lotid', async (request, response) => {
 		});
 });
 
-app.get('/getlotimage/:imageid', async (request, response) => {
+app.get('/getimage/:imageid', async (request, response) => {
 	// API Key:
 	const apiKey = process.env.API_KEY;
 
@@ -87,7 +87,7 @@ app.get('/getlotimage/:imageid', async (request, response) => {
 		});
 });
 
-app.get('/getlotvideo/:videoid', async (request, response) => {
+app.get('/getvideo/:videoid', async (request, response) => {
 	// API Key:
 	const apiKey = process.env.API_KEY;
 

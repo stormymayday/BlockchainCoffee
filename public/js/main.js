@@ -146,7 +146,7 @@ function offsetAnchor() {
 // 	// Displaying data in the DOM:
 // }
 
-// Custom functions for each section
+// API functions
 async function getLotHistory(lotID) {
 	const lotid = lotID;
 	// Local Path
@@ -230,157 +230,123 @@ async function getImage(imageID) {
 window.onload = function() {
 	const url_string = window.location.href.toLowerCase();
 	const url = new URL(url_string);
-	const lotid = url.searchParams.get('lotid');
+	let lotid = url.searchParams.get('lotid');
 
 	// Testing the LotID
 	// console.log(`Testing the lot id ${lotid}`);
 
 	// Roasting Section *************************************************************** /
 	// If lotid is in the URL
-	if (lotid) {
-		getLot(lotid).then((res) => {
-			// Bext Marketplace link from the URL
-			document.getElementById('bext-marketplace-link').href = `https://www.bextmarketplace.com/#/mapsv2/${lotid}?OwnerOrganizationId=f0c3cd58-2055-46e3-b229-1a091d1fb3fe`;
+	if(lotid) {
 
-			// Roasted at 
-			getNode('73427e9e-e29d-4b33-9a27-95244bdb0370').then((res) => {
-				document.getElementById('roasted-at').innerHTML = ` ${res.defaultLocation.city}, ${res.defaultLocation.state}, ${res.defaultLocation.country}`;
-			});
-
-			// Cuppers Notes, Roast Date, and Roaster
-			document.getElementById('lot-cuppers-notes').innerHTML = ` ${res.customData['CuppersNotes.Measure'].value}`;
-			document.getElementById('lot-roast-date').innerHTML = ` ${res.customData['RoastDate.MeasureTime']
-				.dateTimeValue}`;
-			document.getElementById('lot-farmer-name').innerHTML = ` ${res.customData['FarmerName.Measure'].value}</br>
-			<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
-
-			// Roasting Section Image
-			getImage(res.images[0].id).then((lotImage) => {
-				document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
-			});
-
-			// Roasting Section Video
-			getVideo('e549d234-0fae-428b-b200-6ca373c58094').then((lotVideo) => {
-				document.getElementById('roasting-video').src = 'data:video/mp4;base64,' + lotVideo;
-			});
-		});
-		
 	} else {
-		// If lotid is not in the URL
+		lotid = '3551603f-d59d-4651-bcb8-f73bf7faeaa1';
+	}
+	getLot(lotid).then((res) => {
+		// Bext Marketplace link from the URL
+		document.getElementById('bext-marketplace-link').href = `https://www.bextmarketplace.com/#/mapsv2/${lotid}?OwnerOrganizationId=f0c3cd58-2055-46e3-b229-1a091d1fb3fe`;
 
-		// Bext Marketplace default link
-		document.getElementById('bext-marketplace-link').href = `https://www.bextmarketplace.com/#/mapsv2/a58fc3bf-94fd-4f0f-bd37-0947d8ba4146?OwnerOrganizationId=f0c3cd58-2055-46e3-b229-1a091d1fb3fe`;
+		// Roasted at 
+		getNode('73427e9e-e29d-4b33-9a27-95244bdb0370').then((res) => {
+			document.getElementById('roasted-at').innerHTML = ` ${res.defaultLocation.city}, ${res.defaultLocation.state}, ${res.defaultLocation.country}`;
+		});
 
-		// Roasted at default location
-		document.getElementById('roasted-at').innerHTML = ` default City, default State, default Country`;
-
-		// Default Cuppers Notes, Roast Date, and Roaster
-		document.getElementById('lot-cuppers-notes').innerHTML = ` default lot data`;
-		document.getElementById('lot-roast-date').innerHTML = ` default lot data`;
-		document.getElementById('lot-farmer-name').innerHTML = ` default lot data</br>
+		// Cuppers Notes, Roast Date, and Roaster
+		document.getElementById('lot-cuppers-notes').innerHTML = ` ${res.customData['CuppersNotes.Measure'].value}`;
+		document.getElementById('lot-roast-date').innerHTML = ` ${res.customData['RoastDate.MeasureTime']
+			.dateTimeValue}`;
+		document.getElementById('lot-farmer-name').innerHTML = ` ${res.customData['FarmerName.Measure'].value}</br>
 		<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 
-		// Default Roasting Section Image
-		getImage('6b6f8ee4-fc20-425e-8a38-089e6258b5c1').then((lotImage) => {
+		// Roasting Section Image
+		getImage(res.images[0].id).then((lotImage) => {
 			document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
 		});
-		
-		// Default Roasting Section Video
-		getVideo('e549d234-0fae-428b-b200-6ca373c58094').then((lotVideo) => {
+
+		// Roasting Section Video
+		getVideo(res.videos[0].id).then((lotVideo) => {
 			document.getElementById('roasting-video').src = 'data:video/mp4;base64,' + lotVideo;
 		});
-	}
+	});
 	// Roasting Section End  ****************************************************************** /
 
 	// Journey Highlights Section ************************************************************* /
-	// Section 3 Column 1 - QC Intake Green Node
+	// Column - QC Intake Green, 'Roaster Received in'
 	getNode('1dc41db1-f7b5-45f1-8810-432e6be023cb').then((QCIntakeGreen) => {
-		document.getElementById('Node-QC-Intake-Green-defaultLocation-city-state-country').innerHTML = ` ${QCIntakeGreen
+		document.getElementById('qc-intake-green-location').innerHTML = ` ${QCIntakeGreen
 			.defaultLocation.city}, ${QCIntakeGreen.defaultLocation.state}, ${QCIntakeGreen.defaultLocation.country}`;
 	});
 
-	// Section 3 Column - 2020 Combined lot at QCCC roastery Date & Collector's Name
+	// Column - QC Intake Green, 'Date' and 'Received by'
 	getLot('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((CombinedLotAtQCCCRoastery2020) => {
+		// 'Date'
 		document.getElementById(
-			'Lot-2020-Combined-lot-at-QCCC-roastery-date'
+			'qc-intake-green-date'
 		).innerHTML = ` ${CombinedLotAtQCCCRoastery2020.customData['TransportDate.MeasureTime'].dateTimeValue}`;
+		
+		// 'Received by'
 		document.getElementById(
-			'Lot-2020-Combined-lot-at-QCCC-roastery-CollectorName'
+			'qc-intake-green-collector'
 		).innerHTML = ` ${CombinedLotAtQCCCRoastery2020.customData['CollectorName.Measure'].value}
 		</br>
 		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 	});
 
-	// Section 3 Column - Vido 2020 Combined lot at QCCC roastery Video
+	// Column - QC Intake Green, Video
 	getVideo('6d48b0b4-25d3-469e-9d60-a657724ca296').then((lotVideo) => {
 		// console.log(lotVideo);
-		document.getElementById('Lot-2020-Combined-lot-at-QCCC-roastery-video').src =
+		document.getElementById('qc-intake-green-video').src =
 			'data:video/mp4;base64,' + lotVideo;
 	});
 
-	// Section 3 olumn - Port of Oakland Green Import Node
+	// Column - Port of Oakland Green Import, 'Imported At'
 	getNode('b2d1d8b3-498b-424e-87df-3050aa237115').then((PortOfOaklandGreenImport) => {
 		document.getElementById(
-			'Node-Port-of-Oakland-Green-Import-city-state-country'
+			'green-import-location'
 		).innerHTML = ` ${PortOfOaklandGreenImport.defaultLocation.city}, ${PortOfOaklandGreenImport.defaultLocation
 			.state}, ${PortOfOaklandGreenImport.defaultLocation.country}`;
 	});
 
-	// Section 3 Column - Combined lot 2020 Import Date
+	// Column - Port of Oakland Green Import, 'Date'
 	getLot('8f43a6a8-52aa-45d6-9bba-cbf8f823037d').then((CombinedLot2020) => {
-		document.getElementById('Lot-Combined-lot-2020-import-date').innerHTML = ` ${CombinedLot2020.customData[
+		document.getElementById('green-import-date').innerHTML = ` ${CombinedLot2020.customData[
 			'ImportDate.MeasureTime'
 		].dateTimeValue}
 		</br>
 		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 	});
 
-	// Section 3 Column - Combined Lot 2020 Image of the ship
+	// Column - Port of Oakland Green Import, Image
 	getImage('4aa16929-f043-4520-809d-d1f62cfb106d').then((lotImage) => {
-		document.getElementById('Combined-lot-2020-image').src = 'data:image/jpg;base64,' + lotImage;
+		document.getElementById('green-import-image').src = 'data:image/jpg;base64,' + lotImage;
 	});
 
-	// Section 3 Column - Puerto Cortés Green Export Node
+	// Column - Puerto Cortés Green Export, 'Exported From'
 	getNode('c51f7616-5fb6-4416-be83-c98dc0d25df1').then((PuertoCortesGreenExport) => {
 		document.getElementById(
-			'Node-Puerto-Cortes-Green-Export-city-state-country'
+			'green-export-location'
 		).innerHTML = ` ${PuertoCortesGreenExport.defaultLocation.city}, ${PuertoCortesGreenExport.defaultLocation
 			.state}, ${PuertoCortesGreenExport.defaultLocation.country}`;
 	});
 
-	// Section 3 Column - Combined lot 2020 Export Date
+	// Column - Puerto Cortés Green Export, 'Date'
 	getLot('f1222ba7-0c10-4abf-b49f-c197be1ec8e1').then((CombinedLot2020) => {
-		document.getElementById('Lot-Combined-lot-2020-export-date').innerHTML = ` ${CombinedLot2020.customData[
+		document.getElementById('green-export-date').innerHTML = ` ${CombinedLot2020.customData[
 			'ExportDate.MeasureTime'
 		].dateTimeValue}
 		</br>
 		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
 	});
-	// Section 3 Column - 2020 Combined lot at QCCC roastery Video
+
+	// Column - Puerto Cortés Green Export, Video
 	getVideo('c8bf9e23-1ae9-4422-8e00-984566d5663a').then((lotVideo) => {
 		// console.log(lotVideo);
-		document.getElementById('loading-truck-video').src = 'data:video/mp4;base64,' + lotVideo;
+		document.getElementById('green-export-video').src = 'data:video/mp4;base64,' + lotVideo;
 	});
+	// Journey Highlights Section End ******************************************************** /
 
-	// Journey Highlights End ******************************************************** /
-
-	// Section 4 *************************************************************** /
-
-	// Section 4 Column - Milling Location, Miller, and Current Lot Weight
-	getLot('b0c1846f-8cef-410e-a2ec-f6d9f3843e9f').then((res) => {
-		document.getElementById('milled-on').innerHTML = ` ${res.customData['MillingDate.MeasureTime'].dateTimeValue}`;
-		document.getElementById('miller').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
-		document.getElementById('current-lot-weight').innerHTML = ` ${res.currentWeight} ${res.currentWeightUnit}</br>
-		<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
-	});
-
-	// Section 4 Column - Milling Location
-	getNode('8a14226b-873b-4893-bedc-a9699dc28472').then((res) => {
-		document.getElementById('milling-location').innerHTML = ` ${res.defaultLocation.city}, ${res.defaultLocation
-			.state}, ${res.defaultLocation.country}`;
-	});
-
-	// Section 4 Column - Combined Lot Weight & Start and End Dates
+	// Processed and Exported by Catracha Coffee Section ************************************* /
+	// Column - Catracha Intake Parchment, 'Total Intake Weight' and 'Intake Dates between'
 	getLotHistory('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((lotHistory) => {
 		Object.keys(lotHistory).forEach(async function(key) {
 			if (lotHistory[key].nodeId === '01b66b57-c0a0-481c-abb0-57be005096da') {
@@ -431,25 +397,39 @@ window.onload = function() {
 			}
 		});
 	});
+	
+	// Column - Catracha Intake Parchment, Image
+	getImage('2d79f311-eb5f-4a4a-96b8-ec9adfca1617').then((lotImage) => {
+		document.getElementById('catracha-intake-parchment-image').src = 'data:image/jpg;base64,' + lotImage;
+	});
 
-	// Section 4 Column - Milling Video
+	// Column - Milling, 'Milled on', 'Miller', and 'Lot Current Weight'
+	getLot('b0c1846f-8cef-410e-a2ec-f6d9f3843e9f').then((res) => {
+		document.getElementById('milled-on').innerHTML = ` ${res.customData['MillingDate.MeasureTime'].dateTimeValue}`;
+		document.getElementById('miller').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
+		document.getElementById('current-lot-weight').innerHTML = ` ${res.currentWeight} ${res.currentWeightUnit}</br>
+		<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+	});
+
+	// Column - Milling, 'Location'
+	getNode('8a14226b-873b-4893-bedc-a9699dc28472').then((res) => {
+		document.getElementById('milling-location').innerHTML = ` ${res.defaultLocation.city}, ${res.defaultLocation
+			.state}, ${res.defaultLocation.country}`;
+	});
+
+	// Column - Milling, Video
 	getVideo('5b80c8dc-1dac-4eaf-8674-75052d83d0c5').then((lotVideo) => {
 		document.getElementById('milling-video').src = 'data:video/mp4;base64,' + lotVideo;
 	});
 
-	// Section 4 Column - Hand Sorting Image
+	// Column - Milling, Image
 	getImage('14d5be6c-8f0e-48dd-88ca-46a1958a2fcf').then((lotImage) => {
-		document.getElementById('hand-sorting-picture').src = 'data:image/jpg;base64,' + lotImage;
+		document.getElementById('milling-image').src = 'data:image/jpg;base64,' + lotImage;
 	});
+	// Processed and Exported by Catracha Coffee Section End ********************************* /
 
-	// Section 4 Column - Image -
-	getImage('2d79f311-eb5f-4a4a-96b8-ec9adfca1617').then((lotImage) => {
-		document.getElementById('133a7617-5ff0-437e-a5f8-e5ac1e9cc9ac').src = 'data:image/jpg;base64,' + lotImage;
-	});
-	// End of Section 4 ******************************************************** /
-
-	// Section 5 *************************************************************** /
-	// Section 5 Column 1 - Total Absorbed Weight, Total De-pulped Weight, and De-pluped dates
+	// Grown, Picked, and Processed by Claudia & Juan Section ********************************* /
+	// Column - Farmer De-Pulping, 'Total Absorbed Weight', 'Total De-pulped Weight', and 'De-pluped between'
 	getLotHistory('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((lotHistory) => {
 		Object.keys(lotHistory).forEach(async function(key) {
 			if (lotHistory[key].nodeId === '0270eada-dbb8-45dc-a38d-cffc166d87ea') {
@@ -509,26 +489,34 @@ window.onload = function() {
 		});
 	});
 
-	// Section 5 Column 1 - Video - De-Pulping Cherry
+	// Column - Farmer De-Pulping, Video
 	getVideo('df5e4e96-5133-4c85-ad5f-032d65182723').then((lotVideo) => {
 		// console.log(lotVideo);
-		document.getElementById('De-Pulping-Cherry-video').src = 'data:video/mp4;base64,' + lotVideo;
+		document.getElementById('de-pulping-video').src = 'data:video/mp4;base64,' + lotVideo;
 	});
 
-	// Section 5 Column 2 - IDEGWPHarvestCoffee - STATIC
+	// Column - Farmer Harvest (STATIC), 'Picked by', 'Picked Cherries Weight', 'Date picked', 'Variety' and Image
 	getLot('5c955a2e-90ef-6bf4-fa8a-1813ee5d4687').then((res) => {
+		// Picked by
 		document.getElementById('picked-by').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
+
+		// Picked Cherries Weight
 		document.getElementById('picked-cherries-weight').innerHTML = ` ${res.customData['TotalValue.Measure']
 			.value} Lbs`;
+
+		// Date picked
 		document.getElementById('date-picked').innerHTML = ` ${res.customData['HarvestDate.MeasureTime']
 			.dateTimeValue}`;
+
+		// Variety
 		document.getElementById('variety').innerHTML = ` ${res.customData['Varietal.Measure'].value} </br>
 		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+
+		// Image
 		document.getElementById('farmer-picutre').src = res.customData['LotFarmerProductImage.Measure'].value;
 	});
 
-	// Section 5 Column 2 - IDEGWPHarvestCoffee - RANDOM
-
+	// Column - Farmer Harvest (RANDOM), 'Picked by', 'Picked Cherries Weight', 'Date picked', 'Variety' and Image
 	// getLotHistory('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((lotHistory) => {
 	// 	Object.keys(lotHistory).forEach(async function(key) {
 	// 		if (lotHistory[key].nodeId === '6f93c9fc-6a58-41a7-9880-413b6ed87ecd') {
@@ -561,7 +549,7 @@ window.onload = function() {
 	// 		}
 	// 	});
 	// });
-	// End of Section 5 ******************************************************** /
+	// Grown, Picked, and Processed by Claudia & Juan Section End ***************************** /
 };
 
 // (function($) {

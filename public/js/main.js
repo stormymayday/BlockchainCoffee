@@ -236,12 +236,13 @@ window.onload = function() {
 	// console.log(`Testing the lot id ${lotid}`);
 
 	// Roasting Section *************************************************************** /
-	// If lotid is in the URL
+	// If there is a lotid in the URL, do nothing. Otherwise, use the default value.
 	if(lotid) {
 
 	} else {
 		lotid = '3551603f-d59d-4651-bcb8-f73bf7faeaa1';
 	}
+
 	getLot(lotid).then((res) => {
 		// Bext Marketplace link from the URL
 		document.getElementById('bext-marketplace-link').href = `https://www.bextmarketplace.com/#/mapsv2/${lotid}?OwnerOrganizationId=f0c3cd58-2055-46e3-b229-1a091d1fb3fe`;
@@ -255,8 +256,7 @@ window.onload = function() {
 		document.getElementById('lot-cuppers-notes').innerHTML = ` ${res.customData['CuppersNotes.Measure'].value}`;
 		document.getElementById('lot-roast-date').innerHTML = ` ${res.customData['RoastDate.MeasureTime']
 			.dateTimeValue}`;
-		document.getElementById('lot-farmer-name').innerHTML = ` ${res.customData['FarmerName.Measure'].value}</br>
-		<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+		document.getElementById('lot-farmer-name').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
 
 		// Roasting Section Image
 		getImage(res.images[0].id).then((lotImage) => {
@@ -287,9 +287,7 @@ window.onload = function() {
 		// 'Received by'
 		document.getElementById(
 			'qc-intake-green-collector'
-		).innerHTML = ` ${CombinedLotAtQCCCRoastery2020.customData['CollectorName.Measure'].value}
-		</br>
-		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+		).innerHTML = ` ${CombinedLotAtQCCCRoastery2020.customData['CollectorName.Measure'].value}`;
 	});
 
 	// Column - QC Intake Green, Video
@@ -311,9 +309,7 @@ window.onload = function() {
 	getLot('8f43a6a8-52aa-45d6-9bba-cbf8f823037d').then((CombinedLot2020) => {
 		document.getElementById('green-import-date').innerHTML = ` ${CombinedLot2020.customData[
 			'ImportDate.MeasureTime'
-		].dateTimeValue}
-		</br>
-		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+		].dateTimeValue}`;
 	});
 
 	// Column - Port of Oakland Green Import, Image
@@ -333,9 +329,7 @@ window.onload = function() {
 	getLot('f1222ba7-0c10-4abf-b49f-c197be1ec8e1').then((CombinedLot2020) => {
 		document.getElementById('green-export-date').innerHTML = ` ${CombinedLot2020.customData[
 			'ExportDate.MeasureTime'
-		].dateTimeValue}
-		</br>
-		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+		].dateTimeValue}`;
 	});
 
 	// Column - Puerto Cortés Green Export, Video
@@ -392,8 +386,7 @@ window.onload = function() {
 				).innerHTML = ` ${sumOfWeights} Lbs from ${weights.length} separate intakes`;
 				document.getElementById('intake-dates').innerHTML = ` ${intakeDates[0]} and ${intakeDates[
 					intakeDates.length - 1
-				]}</br>
-				<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+				]}`;
 			}
 		});
 	});
@@ -407,8 +400,7 @@ window.onload = function() {
 	getLot('b0c1846f-8cef-410e-a2ec-f6d9f3843e9f').then((res) => {
 		document.getElementById('milled-on').innerHTML = ` ${res.customData['MillingDate.MeasureTime'].dateTimeValue}`;
 		document.getElementById('miller').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
-		document.getElementById('current-lot-weight').innerHTML = ` ${res.currentWeight} ${res.currentWeightUnit}</br>
-		<img src="/images/powered-by-bext-white.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+		document.getElementById('current-lot-weight').innerHTML = ` ${res.currentWeight} ${res.currentWeightUnit}`;
 	});
 
 	// Column - Milling, 'Location'
@@ -483,8 +475,7 @@ window.onload = function() {
 				document.getElementById('total-de-pulped-weight').innerHTML = ` ${sumOfDePupledWeights} Lbs`;
 				document.getElementById(
 					'de-pluped-between-dates'
-				).innerHTML = ` ${dePupledDates[0]} and ${dePupledDates[dePupledDates.length - 1]}</br>
-				<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+				).innerHTML = ` ${dePupledDates[0]} and ${dePupledDates[dePupledDates.length - 1]}`;
 			}
 		});
 	});
@@ -509,8 +500,7 @@ window.onload = function() {
 			.dateTimeValue}`;
 
 		// Variety
-		document.getElementById('variety').innerHTML = ` ${res.customData['Varietal.Measure'].value} </br>
-		<img src="/images/powered-by-bext.png" alt="BEXT360-logo" class="BEXT360-logo-medium">`;
+		document.getElementById('variety').innerHTML = ` ${res.customData['Varietal.Measure'].value}`;
 
 		// Image
 		document.getElementById('farmer-picutre').src = res.customData['LotFarmerProductImage.Measure'].value;

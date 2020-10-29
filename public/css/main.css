@@ -3738,12 +3738,14 @@ body.is-preload #header:after {
 	}
 
 	h2 {
-		font-size: 1.5em;
+		/* font-size: 1.5em; */
+		font-size: 1.6em;
 	}
 
 	/* h3 font-size */
 	h3 {
-		font-size: 1.1em;
+		/* font-size: 1.1em; */
+		font-size: 1.4em;
 	}
 
 	h4 {

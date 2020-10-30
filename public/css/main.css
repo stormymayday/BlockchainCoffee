@@ -3089,7 +3089,7 @@ button:disabled,
 	overflow: hidden;
 	position: relative;
 	text-align: center;
-	height: 100vh;
+	min-height: 100vh;
 }
 
 #header .inner h1 {

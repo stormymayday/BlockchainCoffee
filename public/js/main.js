@@ -267,8 +267,8 @@ window.onload = function() {
 		// Check if the lot has images
 		if(res.images[0]) {
 			getImage(res.images[res.images.length - 1].id).then((lotImage) => {
-				// Testing
-				console.log(lotImage);
+				// Testing image size
+				// console.log(lotImage);
 				document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
 			});
 		}
@@ -284,7 +284,7 @@ window.onload = function() {
 	// Error Handling
 	}).catch(err => {
 		// Testing the error message
-		console.log(err);
+		// console.log(err);
 
 		// Setting the 
 		lotid = '3551603f-d59d-4651-bcb8-f73bf7faeaa1';
@@ -303,7 +303,7 @@ window.onload = function() {
 			// Check if the lot has images
 			if(res.images[0]) {
 				getImage(res.images[res.images.length - 1].id).then((lotImage) => {
-					// Testing
+					// Testing the image size
 					// console.log(lotImage);
 					document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
 				});
@@ -313,6 +313,8 @@ window.onload = function() {
 			// Checking if the lot has videos
 			if(res.videos[0]) {
 				getVideo(res.videos[res.videos.length - 1].id).then((lotVideo) => {
+					// Testing the video size
+					// console.log(lotVideo);
 					document.getElementById('roasting-video').src = 'data:video/mp4;base64,' + lotVideo;
 				});
 			}

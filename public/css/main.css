@@ -3105,6 +3105,11 @@ button:disabled,
 }
 
 /* Custom CSS */
+.roasting .button,
+.processing-and-export .button {
+	box-shadow: inset 0 0 0 1px #ffffff;
+	color: #ffffff !important;
+}
 .header-appendix {
 	background-color: yellow;
 }

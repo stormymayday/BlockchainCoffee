@@ -3162,6 +3162,24 @@ button:disabled,
 	width: auto;
 }
 
+.catracha-container {
+	display: flex;
+	align-items: flex-start;
+}
+
+.catracha-container div p {
+	padding-top: 0;
+	margin-top: -0.4em;
+}
+
+.catracha-image-container {
+	margin-right: 2em;
+}
+
+.partner-logo {
+	border-radius: 2px !important;
+}
+
 .BEXT360-logo {
 	height: 1em;
 }

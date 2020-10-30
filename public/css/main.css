@@ -2965,7 +2965,7 @@ button:disabled,
 	background-color: #333;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/QCCC-hero-min.JPG);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/QC.30-min.jpg);
 	background-size: auto, cover;
 	background-position: top left, center center, center center;
 	color: #fff;

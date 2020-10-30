@@ -114,6 +114,7 @@ app.get('/getvideo/:videoid', async (request, response) => {
 			response.json(data);
 		})
 		.catch((error) => {
+			response.json(error);
 			console.log('Please enter a valid video ID');
 		});
 });
@@ -145,6 +146,7 @@ app.get('/getnode/:nodeid', async (request, response) => {
 			// Subsequent API Calls:
 		})
 		.catch((error) => {
+			response.json(error);
 			console.log('Please enter a valid node ID');
 		});
 });

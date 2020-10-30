@@ -269,16 +269,28 @@ window.onload = function() {
 			getImage(res.images[res.images.length - 1].id).then((lotImage) => {
 				// Testing image size
 				// console.log(lotImage);
-				document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
+
+				const source = 'data:video/mp4;base64,' + lotImage;
+				// document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
+				document.getElementById('roasting-image-container').innerHTML = `<span class="image fit"><img src="${source}" alt="image of coffee roasting"/></span>`;
 			});
+		} else {
+			document.getElementById('roasting-image-container').innerHTML = ``;
 		}
 
 		// Roasting Section Video
 		// Checking if the lot has videos
 		if(res.videos[0]) {
 			getVideo(res.videos[res.videos.length - 1].id).then((lotVideo) => {
-				document.getElementById('roasting-video').src = 'data:video/mp4;base64,' + lotVideo;
+				// Testing video size
+				// console.log(lotVideo);
+
+				const source = 'data:video/mp4;base64,' + lotVideo;
+				// document.getElementById('roasting-video').src = 'data:video/mp4;base64,' + lotVideo;
+				document.getElementById('roasting-video-container').innerHTML = `<span class="image fit"><video class="image fit" controls src="${source}"></video></span>`;
 			});
+		} else {
+			document.getElementById('roasting-video-container').innerHTML = ``;
 		}
 	
 	// Error Handling
@@ -354,9 +366,12 @@ window.onload = function() {
 
 	// Column - QC Intake Green, Video
 	getVideo('6d48b0b4-25d3-469e-9d60-a657724ca296').then((lotVideo) => {
+		// Testing video size
 		// console.log(lotVideo);
-		document.getElementById('qc-intake-green-video').src =
-			'data:video/mp4;base64,' + lotVideo;
+
+		const source = 'data:video/mp4;base64,' + lotVideo;
+		// document.getElementById('qc-intake-green-video').src = 'data:video/mp4;base64,' + lotVideo;
+		document.getElementById('qc-intake-green-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls></video></span>`;
 	});
 
 	// Column - Port of Oakland Green Import, 'Imported At'
@@ -376,7 +391,11 @@ window.onload = function() {
 
 	// Column - Port of Oakland Green Import, Image
 	getImage('4aa16929-f043-4520-809d-d1f62cfb106d').then((lotImage) => {
-		document.getElementById('green-import-image').src = 'data:image/jpg;base64,' + lotImage;
+
+		const source = 'data:image/jpg;base64,' + lotImage;
+
+		document.getElementById('green-import-image-container').innerHTML = `<span class="image fit"><img src="${source}" alt="Picture of the ship"/></span>`;
+
 	});
 
 	// Column - Puerto Cortés Green Export, 'Exported From'
@@ -396,8 +415,11 @@ window.onload = function() {
 
 	// Column - Puerto Cortés Green Export, Video
 	getVideo('c8bf9e23-1ae9-4422-8e00-984566d5663a').then((lotVideo) => {
+		// Testing video size
 		// console.log(lotVideo);
-		document.getElementById('green-export-video').src = 'data:video/mp4;base64,' + lotVideo;
+		const source = 'data:video/mp4;base64,' + lotVideo;
+		// document.getElementById('green-export-video').src = 'data:video/mp4;base64,' + lotVideo;
+		document.getElementById('green-export-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls></video></span>`;
 	});
 	// Journey Highlights Section End ******************************************************** /
 
@@ -455,7 +477,9 @@ window.onload = function() {
 	
 	// Column - Catracha Intake Parchment, Image
 	getImage('2d79f311-eb5f-4a4a-96b8-ec9adfca1617').then((lotImage) => {
-		document.getElementById('catracha-intake-parchment-image').src = 'data:image/jpg;base64,' + lotImage;
+		const source = 'data:image/jpg;base64,' + lotImage;
+
+		document.getElementById('catracha-intake-parchment-image-container').innerHTML = `<span class="image fit"><img src="${source}" alt="Catracha Intake Parchment Image"/></span>`;
 	});
 
 	// Column - Milling, 'Milled on', 'Miller', and 'Lot Current Weight'
@@ -473,12 +497,16 @@ window.onload = function() {
 
 	// Column - Milling, Video
 	getVideo('5b80c8dc-1dac-4eaf-8674-75052d83d0c5').then((lotVideo) => {
-		document.getElementById('milling-video').src = 'data:video/mp4;base64,' + lotVideo;
+		const source = 'data:video/mp4;base64,' + lotVideo;
+		// document.getElementById('milling-video').src = 'data:video/mp4;base64,' + lotVideo;
+		document.getElementById('milling-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls></video></span>`;
 	});
 
 	// Column - Milling, Image
 	getImage('14d5be6c-8f0e-48dd-88ca-46a1958a2fcf').then((lotImage) => {
-		document.getElementById('milling-image').src = 'data:image/jpg;base64,' + lotImage;
+		const source = 'data:image/jpg;base64,' + lotImage;
+		// document.getElementById('milling-image').src = 'data:image/jpg;base64,' + lotImage;
+		document.getElementById('milling-image-container').innerHTML = `<span class="image fit"><img src="${source}" alt="Handsorting Picture"/></span>`;
 	});
 	// Processed and Exported by Catracha Coffee Section End ********************************* /
 
@@ -545,7 +573,13 @@ window.onload = function() {
 	// Column - Farmer De-Pulping, Video
 	getVideo('df5e4e96-5133-4c85-ad5f-032d65182723').then((lotVideo) => {
 		// console.log(lotVideo);
-		document.getElementById('de-pulping-video').src = 'data:video/mp4;base64,' + lotVideo;
+		const source = 'data:video/mp4;base64,' + lotVideo;
+
+		// Testing
+		// console.log(lotVideo.type)
+
+		document.getElementById('de-pulping-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls></video></span>`;
+
 	});
 
 	// Column - Farmer Harvest (STATIC), 'Picked by', 'Picked Cherries Weight', 'Date picked', 'Variety' and Image
@@ -564,8 +598,13 @@ window.onload = function() {
 		// Variety
 		document.getElementById('variety').innerHTML = ` ${res.customData['Varietal.Measure'].value}`;
 
-		// Image
-		document.getElementById('farmer-picutre').src = res.customData['LotFarmerProductImage.Measure'].value;
+		// Image if exists
+		if(res.customData['LotFarmerProductImage.Measure']) {
+			const source = res.customData['LotFarmerProductImage.Measure'].value;
+			document.getElementById('farmer-picutre-container').innerHTML = `<span class="image fit"><img src="${source}" id="farmer-picutre" alt="farmer-picture"/></span>`;
+		} else {
+			document.getElementById('farmer-picutre-container').innerHTML = ``;
+		}
 	});
 
 	// Column - Farmer Harvest (RANDOM), 'Picked by', 'Picked Cherries Weight', 'Date picked', 'Variety' and Image
@@ -575,8 +614,14 @@ window.onload = function() {
 	// 			// Getting the lotIDs Array
 	// 			const lotIDs = lotHistory[key].lotIds;
 
+	// 			// Testing
+	// 			console.log(lotIDs);
+
+	// 			// Random ID
+	// 			const randomId = lotIDs[Math.floor(Math.random() * lotIDs.length + 1)];
+
 	// 			// Pulling Random lot into the Placeholder object
-	// 			const lotData = await getLot(lotIDs[Math.floor(Math.random() * lotIDs.length + 1)]);
+	// 			const lotData = await getLot(randomId);
 
 	// 			console.log(
 	// 				`LotID: ${lotData.lotId}, Farmer Name: ${lotData.customData['FarmerName.Measure']
@@ -587,17 +632,23 @@ window.onload = function() {
 	// 			);
 
 	// 			// DOM Manipulations:
-	// 			document.getElementById('picked-by').innerHTML = `Picked by: ${lotData.customData['FarmerName.Measure']
+	// 			document.getElementById('picked-by').innerHTML = ` ${lotData.customData['FarmerName.Measure']
 	// 				.value}`;
-	// 			document.getElementById('picked-cherries-weight').innerHTML = `Picked Cherries Weight: ${lotData
+	// 			document.getElementById('picked-cherries-weight').innerHTML = ` ${lotData
 	// 				.customData['TotalValue.Measure'].value} Lbs`;
-	// 			document.getElementById('date-picked').innerHTML = `Picked Cherries Weight: ${lotData.customData[
+	// 			document.getElementById('date-picked').innerHTML = ` ${lotData.customData[
 	// 				'HarvestDate.MeasureTime'
 	// 			].dateTimeValue}`;
-	// 			document.getElementById('variety').innerHTML = `Variety: ${lotData.customData['Varietal.Measure']
+	// 			document.getElementById('variety').innerHTML = ` ${lotData.customData['Varietal.Measure']
 	// 				.value}`;
-	// 			document.getElementById('farmer-picutre').src =
-	// 				lotData.customData['LotFarmerProductImage.Measure'].value;
+
+	// 			// Image
+	// 			if(lotData.customData['LotFarmerProductImage.Measure'].value) {
+	// 				const source = lotData.customData['LotFarmerProductImage.Measure'].value;
+	// 				document.getElementById('farmer-picutre-container').innerHTML = `<span class="image fit"><img src="${source}" alt="farmer-picture"/></span>`;
+	// 			} else {
+	// 				document.getElementById('farmer-picutre-container').innerHTML = ``;
+	// 			}
 	// 		}
 	// 	});
 	// });

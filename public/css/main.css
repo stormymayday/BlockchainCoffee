@@ -3083,7 +3083,7 @@ button:disabled,
 	background-color: #4686a0;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed, fixed;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/hillside-min.JPG);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/ClaudiaYJuan.jpg);
 	background-position: top left, center center, center center;
 	background-size: auto, cover, cover;
 	overflow: hidden;
@@ -3102,6 +3102,16 @@ button:disabled,
 
 #header .icons {
 	margin-top: 1.5%;
+}
+
+/* Custom CSS */
+.header-appendix {
+	background-color: yellow;
+}
+
+.header-appendix p {
+	padding: 2em;
+	text-align: center;
 }
 
 .main-nav {

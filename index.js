@@ -54,6 +54,7 @@ app.get('/getlot/:lotid', async (request, response) => {
 		})
 		.catch((error) => {
 			console.log('Please enter a valid lot ID');
+			response.json(error);
 		});
 });
 

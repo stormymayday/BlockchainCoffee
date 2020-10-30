@@ -238,9 +238,14 @@ window.onload = function() {
 	// Roasting Section *************************************************************** /
 	// If there is a lotid in the URL, do nothing. Otherwise, use the default value.
 	if(lotid) {
-
+		// Header Appendix Paragarph with a valid lotID
+		// document.getElementById('header-appendix-paragraph').innerHTML = `The lotID is in the URL: ${lotid}`;
 	} else {
+		// Default Roast LotID
 		lotid = '3551603f-d59d-4651-bcb8-f73bf7faeaa1';
+
+		// Paragraph
+		document.getElementById('header-appendix-paragraph').innerHTML = `<div class="container"><p>Hello, this page is more exciting when displaying information on a particular batch, so we have picked a default one for you!</p></div>`;
 	}
 
 	getLot(lotid).then((res) => {
@@ -259,14 +264,69 @@ window.onload = function() {
 		document.getElementById('lot-farmer-name').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
 
 		// Roasting Section Image
-		getImage(res.images[0].id).then((lotImage) => {
-			document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
-		});
+		// Check if the lot has images
+		if(res.images[0]) {
+			getImage(res.images[res.images.length - 1].id).then((lotImage) => {
+				// Testing
+				console.log(lotImage);
+				document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
+			});
+		}
 
 		// Roasting Section Video
-		getVideo(res.videos[0].id).then((lotVideo) => {
-			document.getElementById('roasting-video').src = 'data:video/mp4;base64,' + lotVideo;
+		// Checking if the lot has videos
+		if(res.videos[0]) {
+			getVideo(res.videos[res.videos.length - 1].id).then((lotVideo) => {
+				document.getElementById('roasting-video').src = 'data:video/mp4;base64,' + lotVideo;
+			});
+		}
+	
+	// Error Handling
+	}).catch(err => {
+		// Testing the error message
+		console.log(err);
+
+		// Setting the 
+		lotid = '3551603f-d59d-4651-bcb8-f73bf7faeaa1';
+
+		getLot(lotid).then((res) => {
+			// Bext Marketplace link from the URL
+			document.getElementById('bext-marketplace-link').href = `https://www.bextmarketplace.com/#/mapsv2/${lotid}?OwnerOrganizationId=f0c3cd58-2055-46e3-b229-1a091d1fb3fe`;
+	
+			// Cuppers Notes, Roast Date, and Roaster
+			document.getElementById('lot-cuppers-notes').innerHTML = ` ${res.customData['CuppersNotes.Measure'].value}`;
+			document.getElementById('lot-roast-date').innerHTML = ` ${res.customData['RoastDate.MeasureTime']
+				.dateTimeValue}`;
+			document.getElementById('lot-farmer-name').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
+	
+			// Roasting Section Image
+			// Check if the lot has images
+			if(res.images[0]) {
+				getImage(res.images[res.images.length - 1].id).then((lotImage) => {
+					// Testing
+					// console.log(lotImage);
+					document.getElementById('roasting-img').src = 'data:image/jpg;base64,' + lotImage;
+				});
+			}
+	
+			// Roasting Section Video
+			// Checking if the lot has videos
+			if(res.videos[0]) {
+				getVideo(res.videos[res.videos.length - 1].id).then((lotVideo) => {
+					document.getElementById('roasting-video').src = 'data:video/mp4;base64,' + lotVideo;
+				});
+			}
+		
+		// Error Handling
 		});
+
+		// Cuppers Notes, Roast Date, and Roaster
+		document.getElementById('lot-cuppers-notes').innerHTML = ` Invalid Lot ID`;
+		document.getElementById('lot-roast-date').innerHTML = `  Invalid Lot ID`;
+		document.getElementById('lot-farmer-name').innerHTML = `  Invalid Lot ID`;
+
+		// Header Appendix Paragraph
+		document.getElementById('header-appendix-paragraph').innerHTML = `<div class="container"><p>Hello, the lotID entered does not match any in our database, so we have picked a default one for you! If you think this is an error, pls contact us! (link to an email)</p></div>`;
 	});
 	// Roasting Section End  ****************************************************************** /
 

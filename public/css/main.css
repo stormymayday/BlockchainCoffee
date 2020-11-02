@@ -3221,6 +3221,13 @@ button:disabled,
 	padding-bottom: 0.4em;
 }
 
+.partner-container {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 2em;
+	/* flex-direction: column; */
+}
+
 .toggle-button {
 	position: absolute;
 	top: 2.8rem;

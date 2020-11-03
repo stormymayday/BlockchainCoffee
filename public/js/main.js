@@ -425,18 +425,33 @@ window.onload = function() {
 
 	// Processed and Exported by Catracha Coffee Section ************************************* /
 	// Column - Catracha Intake Parchment, 'Total Intake Weight' and 'Intake Dates between'
-	getLotHistory('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((lotHistory) => {
+	// lotid 'a58fc3bf-94fd-4f0f-bd37-0947d8ba4146'
+	getLotHistory(lotid).then((lotHistory) => {
+		// Testing the lotid
+		// console.log(lotid);
+
 		Object.keys(lotHistory).forEach(async function(key) {
+			// First Node
 			if (lotHistory[key].nodeId === '01b66b57-c0a0-481c-abb0-57be005096da') {
 				// Getting the lotIDs Array
 				const lotIDs = lotHistory[key].lotIds;
+
+				// Testing the lotIDs
+				// console.log(`First node: ${lotIDs}`);
+
 				// Placeholder object
 				const lotData = {};
+
 				// Weights array
 				const weights = [];
+
+				// Money array
+				const money = [];
+
 				// Dates array
 				const intakeDates = [];
-				for (i = 0; i < lotIDs.length; i++) {
+
+				for (let i = 0; i < lotIDs.length; i++) {
 					// API call and object assignment
 					Object.assign(lotData, await getLot(lotIDs[i]));
 
@@ -446,8 +461,10 @@ window.onload = function() {
 					// Placing Transaction Date value into a string variable
 					const str = lotData.customData['TransactionDate.MeasureTime'].dateTimeValue;
 
+
 					// Slicing off first 10 characters
 					const intakeDate = str.slice(0, 10);
+
 
 					// Capturing Intake Date into the array
 					intakeDates[i] = intakeDate;
@@ -471,8 +488,68 @@ window.onload = function() {
 				document.getElementById('intake-dates').innerHTML = ` ${intakeDates[0]} and ${intakeDates[
 					intakeDates.length - 1
 				]}`;
-			}
+			} 
+
+			// Grown, Picked, and Processed by Claudia & Juan Section ********************************* /
+			// Column - Farmer De-Pulping, 'Total Absorbed Weight', 'Total De-pulped Weight', and 'De-pluped between'
+			if (lotHistory[key].nodeId === '0270eada-dbb8-45dc-a38d-cffc166d87ea') {
+					// Getting the lotIDs Array
+					const lotIDs2 = lotHistory[key].lotIds;
+
+					// Testing the lotIDs
+					// console.log(`Second node: ${lotIDs2}`);
+	
+					// Placeholder object
+					const lotData2 = {};
+	
+					// Absorbed Weights array
+					const absorbedWeights = [];
+	
+					// De-pupled Weights array
+					const dePupledWeights = [];
+	
+					// De-pluped Dates array
+					const dePupledDates = [];
+	
+					for (let j = 0; j < lotIDs2.length; j++) {
+						// API call and object assignment
+						Object.assign(lotData2, await getLot(lotIDs2[j]));
+	
+						// Getting Absorbed Weight in integer format
+						absorbedWeights[j] = parseInt(lotData2.absorbedWeight);
+	
+						// Getting De-Pupled Weight in integer format
+						dePupledWeights[j] = parseInt(lotData2.currentWeight);
+	
+						// Capturing De-Pupled Date into the array
+						dePupledDates[j] = lotData2.customData['De-PulpingDate.MeasureTime'].dateTimeValue;
+					}
+	
+					// Getting the sum of Absorbed Weights
+					const sumOfAbsorbedWeights = absorbedWeights.reduce((accumulator, currentValue) => {
+						return accumulator + currentValue;
+					}, 0);
+	
+					// Getting the sum of De-Pupled Weight Weights
+					const sumOfDePupledWeights = dePupledWeights.reduce((accumulator, currentValue) => {
+						return accumulator + currentValue;
+					}, 0);
+	
+					// Sorting the De-Pupled Dates Array
+					dePupledDates.sort();
+	
+					// Testing
+					// console.log(sumOfAbsorbedWeights, sumOfDePupledWeights, dePupledDates);
+	
+					// DOM Manipulations:
+					document.getElementById('total-absorbed-weight').innerHTML = ` ${sumOfAbsorbedWeights} Lbs`;
+					document.getElementById('total-de-pulped-weight').innerHTML = ` ${sumOfDePupledWeights} Lbs`;
+					document.getElementById(
+						'de-pluped-between-dates'
+					).innerHTML = ` ${dePupledDates[0]} and ${dePupledDates[dePupledDates.length - 1]}`;
+				}
 		});
+
 	});
 	
 	// Column - Catracha Intake Parchment, Image
@@ -511,65 +588,6 @@ window.onload = function() {
 	// Processed and Exported by Catracha Coffee Section End ********************************* /
 
 	// Grown, Picked, and Processed by Claudia & Juan Section ********************************* /
-	// Column - Farmer De-Pulping, 'Total Absorbed Weight', 'Total De-pulped Weight', and 'De-pluped between'
-	getLotHistory('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((lotHistory) => {
-		Object.keys(lotHistory).forEach(async function(key) {
-			if (lotHistory[key].nodeId === '0270eada-dbb8-45dc-a38d-cffc166d87ea') {
-				// Getting the lotIDs Array
-				const lotIDs = lotHistory[key].lotIds;
-
-				// Placeholder object
-				const lotData = {};
-
-				// Absorbed Weights array
-				const absorbedWeights = [];
-
-				// De-pupled Weights array
-				const dePupledWeights = [];
-
-				// De-pluped Dates array
-				const dePupledDates = [];
-
-				for (i = 0; i < lotIDs.length; i++) {
-					// API call and object assignment
-					Object.assign(lotData, await getLot(lotIDs[i]));
-
-					// Getting Absorbed Weight in integer format
-					absorbedWeights[i] = parseInt(lotData.absorbedWeight);
-
-					// Getting De-Pupled Weight in integer format
-					dePupledWeights[i] = parseInt(lotData.currentWeight);
-
-					// Capturing De-Pupled Date into the array
-					dePupledDates[i] = lotData.customData['De-PulpingDate.MeasureTime'].dateTimeValue;
-				}
-
-				// Getting the sum of Absorbed Weights
-				const sumOfAbsorbedWeights = absorbedWeights.reduce((accumulator, currentValue) => {
-					return accumulator + currentValue;
-				}, 0);
-
-				// Getting the sum of De-Pupled Weight Weights
-				const sumOfDePupledWeights = dePupledWeights.reduce((accumulator, currentValue) => {
-					return accumulator + currentValue;
-				}, 0);
-
-				// Sorting the De-Pupled Dates Array
-				dePupledDates.sort();
-
-				// Testing
-				// console.log(sumOfAbsorbedWeights, sumOfDePupledWeights, dePupledDates);
-
-				// DOM Manipulations:
-				document.getElementById('total-absorbed-weight').innerHTML = ` ${sumOfAbsorbedWeights} Lbs`;
-				document.getElementById('total-de-pulped-weight').innerHTML = ` ${sumOfDePupledWeights} Lbs`;
-				document.getElementById(
-					'de-pluped-between-dates'
-				).innerHTML = ` ${dePupledDates[0]} and ${dePupledDates[dePupledDates.length - 1]}`;
-			}
-		});
-	});
-
 	// Column - Farmer De-Pulping, Video
 	getVideo('df5e4e96-5133-4c85-ad5f-032d65182723').then((lotVideo) => {
 		// console.log(lotVideo);

@@ -507,12 +507,10 @@ window.onload = function() {
 					intakeDates.length - 1
 				]}`;
 				// Converting the sumOfPayments into USD by dividing it by 24.5
-				document.getElementById('payments-total').innerHTML = ` ${(sumOfPayments / 24.5).toFixed(2)} 
-				USD`;
+				document.getElementById('payments-total').innerHTML = ` ${(sumOfPayments / 24.5).toFixed(2)} USD`;
 			
 				// Economics Section - Paid for Parchment
-				document.getElementById('paid-for-parchment').innerHTML = ` ${(sumOfPayments / 24.5).toFixed(2)} 
-				USD`;
+				document.getElementById('paid-for-parchment').innerHTML = ` $${(sumOfPayments / 24.5).toFixed(2)}`;
 			} 
 
 			// Grown, Picked, and Processed by Claudia & Juan Section ********************************* /
@@ -701,7 +699,7 @@ window.onload = function() {
 	// Column -
 	getLot('f1222ba7-0c10-4abf-b49f-c197be1ec8e1').then((res) => {
 		// Picked by
-		document.getElementById('profit-share').innerHTML = ` ${(res.customData['ProfitSharePaymentTotal.Measure'].value / res.customData['ProfitShareExchangeRate.Measure'].value).toFixed(2)} USD`;
+		document.getElementById('profit-share').innerHTML = ` $${(res.customData['ProfitSharePaymentTotal.Measure'].value / res.customData['ProfitShareExchangeRate.Measure'].value).toFixed(2)}`;
 	});
 	// Total Payment = Paid for Parchment + Profit Share
 	// document.getElementById('profit-share').innerHTML = ` `;

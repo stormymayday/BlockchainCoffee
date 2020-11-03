@@ -354,13 +354,18 @@ window.onload = function() {
 			.defaultLocation.city}, ${QCIntakeGreen.defaultLocation.state}, ${QCIntakeGreen.defaultLocation.country}`;
 	});
 
-	// Column - QC Intake Green, 'Date' and 'Received by'
+	// Column - QC Intake Green, 'Date', 'Weight', and 'Received by'
 	getLot('a58fc3bf-94fd-4f0f-bd37-0947d8ba4146').then((CombinedLotAtQCCCRoastery2020) => {
 		// 'Date'
 		document.getElementById(
 			'qc-intake-green-date'
 		).innerHTML = ` ${CombinedLotAtQCCCRoastery2020.customData['TransportDate.MeasureTime'].dateTimeValue}`;
-		
+
+		// 'Weight
+		document.getElementById(
+			'qc-intake-green-weight'
+		).innerHTML = ` ${CombinedLotAtQCCCRoastery2020.currentWeight} Lbs`;
+
 		// 'Received by'
 		document.getElementById(
 			'qc-intake-green-collector'
@@ -583,7 +588,7 @@ window.onload = function() {
 	getLot('b0c1846f-8cef-410e-a2ec-f6d9f3843e9f').then((res) => {
 		document.getElementById('milled-on').innerHTML = ` ${res.customData['MillingDate.MeasureTime'].dateTimeValue}`;
 		document.getElementById('miller').innerHTML = ` ${res.customData['FarmerName.Measure'].value}`;
-		document.getElementById('current-lot-weight').innerHTML = ` ${res.currentWeight} ${res.currentWeightUnit}`;
+		document.getElementById('current-lot-weight').innerHTML = ` ${res.currentWeight} Lbs`;
 	});
 
 	// Column - Milling, 'Location'

@@ -1,3 +1,5 @@
+// const { parse } = require("dotenv/types");
+
 // Navbar Script
 const toggleButton = document.getElementsByClassName('toggle-button')[0];
 const navbarLinks = document.getElementsByClassName('navbar-links')[0];
@@ -232,6 +234,7 @@ window.onload = function() {
 	const url = new URL(url_string);
 	let lotid = url.searchParams.get('lotid');
 
+	let variable;
 	// Testing the LotID
 	// console.log(`Testing the lot id ${lotid}`);
 
@@ -406,11 +409,13 @@ window.onload = function() {
 			.state}, ${PuertoCortesGreenExport.defaultLocation.country}`;
 	});
 
-	// Column - Puerto Cortés Green Export, 'Date'
+	// Column - Puerto Cortés Green Export, 'Date' and Weight
 	getLot('f1222ba7-0c10-4abf-b49f-c197be1ec8e1').then((CombinedLot2020) => {
 		document.getElementById('green-export-date').innerHTML = ` ${CombinedLot2020.customData[
 			'ExportDate.MeasureTime'
 		].dateTimeValue}`;
+
+		document.getElementById('green-export-weight').innerHTML = ` ${CombinedLot2020.absorbedWeight} Lbs`;
 	});
 
 	// Column - Puerto Cortés Green Export, Video
@@ -446,7 +451,7 @@ window.onload = function() {
 				const weights = [];
 
 				// Money array
-				const money = [];
+				const payments = [];
 
 				// Dates array
 				const intakeDates = [];
@@ -468,10 +473,18 @@ window.onload = function() {
 
 					// Capturing Intake Date into the array
 					intakeDates[i] = intakeDate;
+
+					// Capturing TotalValue.Measure into the array
+					payments[i] = parseInt(lotData.customData["TotalValue.Measure"].value);
 				}
 
 				// Getting the sum of weights
 				const sumOfWeights = weights.reduce((accumulator, currentValue) => {
+					return accumulator + currentValue;
+				}, 0);
+
+				// Getting the sum of payments
+				const sumOfPayments = payments.reduce((accumulator, currentValue) => {
 					return accumulator + currentValue;
 				}, 0);
 
@@ -488,6 +501,13 @@ window.onload = function() {
 				document.getElementById('intake-dates').innerHTML = ` ${intakeDates[0]} and ${intakeDates[
 					intakeDates.length - 1
 				]}`;
+				// Converting the sumOfPayments into USD by dividing it by 24.5
+				document.getElementById('payments-total').innerHTML = ` ${(sumOfPayments / 24.5).toFixed(2)} 
+				USD`;
+			
+				// Economics Section - Paid for Parchment
+				document.getElementById('paid-for-parchment').innerHTML = ` ${(sumOfPayments / 24.5).toFixed(2)} 
+				USD`;
 			} 
 
 			// Grown, Picked, and Processed by Claudia & Juan Section ********************************* /
@@ -671,6 +691,16 @@ window.onload = function() {
 	// 	});
 	// });
 	// Grown, Picked, and Processed by Claudia & Juan Section End ***************************** /
+
+	// Economics Section
+	// Column -
+	getLot('f1222ba7-0c10-4abf-b49f-c197be1ec8e1').then((res) => {
+		// Picked by
+		document.getElementById('profit-share').innerHTML = ` ${(res.customData['ProfitSharePaymentTotal.Measure'].value / res.customData['ProfitShareExchangeRate.Measure'].value).toFixed(2)} USD`;
+	});
+	// Total Payment = Paid for Parchment + Profit Share
+	// document.getElementById('profit-share').innerHTML = ` `;
+	// Economics Section End
 };
 
 // (function($) {

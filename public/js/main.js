@@ -365,7 +365,7 @@ window.onload = function() {
 
 				const source = 'data:video/mp4;base64,' + lotVideo;
 				// document.getElementById('roasting-video').src = 'data:video/mp4;base64,' + lotVideo;
-				document.getElementById('roasting-video-container').innerHTML = `<span class="image fit"><video class="image fit" controls src="${source}"></video></span>`;
+				document.getElementById('roasting-video-container').innerHTML = `<span class="image fit"><video class="image fit" controls src="${source}" onplay="ga('send', 'event', 'Videos', 'play', 'Roasting');"></video></span>`;
 			});
 		} else {
 			document.getElementById('roasting-video-container').innerHTML = ``;
@@ -454,7 +454,7 @@ window.onload = function() {
 
 		const source = 'data:video/mp4;base64,' + lotVideo;
 		// document.getElementById('qc-intake-green-video').src = 'data:video/mp4;base64,' + lotVideo;
-		document.getElementById('qc-intake-green-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls></video></span>`;
+		document.getElementById('qc-intake-green-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'QCIntakeGreen');"></video></span>`;
 	});
 
 	// Column - Port of Oakland Green Import, 'Imported At'
@@ -504,7 +504,7 @@ window.onload = function() {
 		// console.log(lotVideo);
 		const source = 'data:video/mp4;base64,' + lotVideo;
 		// document.getElementById('green-export-video').src = 'data:video/mp4;base64,' + lotVideo;
-		document.getElementById('green-export-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls></video></span>`;
+		document.getElementById('green-export-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'ExportGreen');"></video></span>`;
 	});
 	// Journey Highlights Section End ******************************************************** /
 
@@ -694,7 +694,7 @@ window.onload = function() {
 		// Testing
 		// console.log(lotVideo.type)
 
-		document.getElementById('de-pulping-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls></video></span>`;
+		document.getElementById('de-pulping-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'DePulping');"></video></span>`;
 
 	});
 

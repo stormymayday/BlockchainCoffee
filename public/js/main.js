@@ -1,8 +1,40 @@
+// Testing Google Analytics
 // ga('send', 'event', 'GordonsTest', 'auto', 'Fall Campaign');
 
-// addEventListener.getLotonclick="ga('send', 'event', 'BuyThisCoffee', 'click');"
-
-document.getElementById("buy-this-coffee").addEventListener("click", ga('send', 'event', 'BuyThisCoffeeEL', 'click'));
+// Google Analytics Events
+// Navbar ****************
+// BCB logo / Home
+document.getElementById("BCB-logo").addEventListener("click", ga('send', 'event', 'Home-Top', 'click'));
+// Farming
+document.getElementById("link-farming").addEventListener("click", ga('send', 'event', 'Farming', 'click'));
+// Processing & Export
+document.getElementById("link-processing-and-export").addEventListener("click", ga('send', 'event', 'Processing-and-Export', 'click'));
+// Journey Highlights
+document.getElementById("link-journey-highlights").addEventListener("click", ga('send', 'event', 'Journey-Highlights', 'click'));
+// Roasting
+document.getElementById("link-roasting").addEventListener("click", ga('send', 'event', 'Roasting', 'click'));
+// Feedback
+document.getElementById("link-feedback").addEventListener("click", ga('send', 'event', 'Feedback', 'click'));
+// About
+document.getElementById("link-about").addEventListener("click", ga('send', 'event', 'About', 'click'));
+// Sponsors
+document.getElementById("link-sponsors").addEventListener("click", ga('send', 'event', 'Sponsors', 'click'));
+// Navbar ****************
+// BEXT Marketplace
+document.getElementById("bext-marketplace-link").addEventListener("click", ga('send', 'event', 'Bext-Marketplace', 'click'));
+// Catracha
+document.getElementById("catracha-logo-link").addEventListener("click", ga('send', 'event', 'Catracha-Logo', 'click'));
+document.getElementById("catracha-button").addEventListener("click", ga('send', 'event', 'Catracha-Button', 'click'));
+// Buy This Coffee button
+document.getElementById("buy-this-coffee").addEventListener("click", ga('send', 'event', 'BuyThisCoffee', 'click'));
+// BEXT Homepage
+document.getElementById("bext-homepage-link").addEventListener("click", ga('send', 'event', 'Bext-Homepage', 'click'));
+// iDE Homepage
+document.getElementById("ide-homepage-link").addEventListener("click", ga('send', 'event', 'iDE-Homepage', 'click'));
+// Arrow Homepage
+document.getElementById("arrow-homepage-link").addEventListener("click", ga('send', 'event', 'Arrow-Homepage', 'click'));
+// Posner Homepage
+document.getElementById("posner-homepage-link").addEventListener("click", ga('send', 'event', 'Posner-Homepage', 'click'));
 
 // Navbar Script
 const toggleButton = document.getElementsByClassName('toggle-button')[0];

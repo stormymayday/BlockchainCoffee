@@ -4,7 +4,9 @@
 // Google Analytics Events
 // Navbar ****************
 // BCB logo / Home
-document.getElementById("BCB-logo").addEventListener("click", ga('send', 'event', 'Home-Top', 'click'));
+document.getElementById("BCB-logo").addEventListener("click", function(){
+	ga('send', 'event', 'Home-Top', 'click')
+});
 // Farming
 document.getElementById("link-farming").addEventListener("click", ga('send', 'event', 'Farming', 'click'));
 // Processing & Export
@@ -35,6 +37,8 @@ document.getElementById("ide-homepage-link").addEventListener("click", ga('send'
 document.getElementById("arrow-homepage-link").addEventListener("click", ga('send', 'event', 'Arrow-Homepage', 'click'));
 // Posner Homepage
 document.getElementById("posner-homepage-link").addEventListener("click", ga('send', 'event', 'Posner-Homepage', 'click'));
+// Test
+document.getElementById("dummy").addEventListener("click", ga('send', 'event', 'TestingEL', 'click'));
 
 // Navbar Script
 const toggleButton = document.getElementsByClassName('toggle-button')[0];

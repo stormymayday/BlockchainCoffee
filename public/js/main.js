@@ -1,4 +1,4 @@
-// const { parse } = require("dotenv/types");
+ga('send', 'event', 'GordonsTest', 'auto', 'Fall Campaign');
 
 // Navbar Script
 const toggleButton = document.getElementsByClassName('toggle-button')[0];

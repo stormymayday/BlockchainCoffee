@@ -1,4 +1,8 @@
-ga('send', 'event', 'GordonsTest', 'auto', 'Fall Campaign');
+// ga('send', 'event', 'GordonsTest', 'auto', 'Fall Campaign');
+
+// addEventListener.getLotonclick="ga('send', 'event', 'BuyThisCoffee', 'click');"
+
+document.getElementById("buy-this-coffee").addEventListener("click", ga('send', 'event', 'BuyThisCoffee', 'click'));
 
 // Navbar Script
 const toggleButton = document.getElementsByClassName('toggle-button')[0];

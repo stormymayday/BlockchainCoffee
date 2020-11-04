@@ -674,7 +674,7 @@ window.onload = function() {
 	getVideo('5b80c8dc-1dac-4eaf-8674-75052d83d0c5').then((lotVideo) => {
 		const source = 'data:video/mp4;base64,' + lotVideo;
 		// document.getElementById('milling-video').src = 'data:video/mp4;base64,' + lotVideo;
-		document.getElementById('milling-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls></video></span>`;
+		document.getElementById('milling-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'Milling');"></video></span>`;
 	});
 
 	// Column - Milling, Image

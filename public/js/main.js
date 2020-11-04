@@ -365,7 +365,7 @@ window.onload = function() {
 
 				const source = 'data:video/mp4;base64,' + lotVideo;
 				// document.getElementById('roasting-video').src = 'data:video/mp4;base64,' + lotVideo;
-				document.getElementById('roasting-video-container').innerHTML = `<span class="image fit"><video class="image fit" controls src="${source}" onplay="ga('send', 'event', 'Videos', 'play', 'Roasting');"></video></span>`;
+				document.getElementById('roasting-video-container').innerHTML = `<span class="image fit"><video class="image fit" controls src="${source}" onplay="ga('send', 'event', 'Videos', 'play', 'Roasting');" onended="ga('send', 'event', 'Videos', 'ended', 'Roasting');"></video></span>`;
 			});
 		} else {
 			document.getElementById('roasting-video-container').innerHTML = ``;
@@ -454,7 +454,7 @@ window.onload = function() {
 
 		const source = 'data:video/mp4;base64,' + lotVideo;
 		// document.getElementById('qc-intake-green-video').src = 'data:video/mp4;base64,' + lotVideo;
-		document.getElementById('qc-intake-green-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'QCIntakeGreen');"></video></span>`;
+		document.getElementById('qc-intake-green-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'QCIntakeGreen');" onended="ga('send', 'event', 'Videos', 'ended', 'QCIntakeGreen');"></video></span>`;
 	});
 
 	// Column - Port of Oakland Green Import, 'Imported At'
@@ -504,7 +504,7 @@ window.onload = function() {
 		// console.log(lotVideo);
 		const source = 'data:video/mp4;base64,' + lotVideo;
 		// document.getElementById('green-export-video').src = 'data:video/mp4;base64,' + lotVideo;
-		document.getElementById('green-export-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'ExportGreen');"></video></span>`;
+		document.getElementById('green-export-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'ExportGreen');" onended="ga('send', 'event', 'Videos', 'ended', 'ExportGreen');"></video></span>`;
 	});
 	// Journey Highlights Section End ******************************************************** /
 
@@ -674,7 +674,7 @@ window.onload = function() {
 	getVideo('5b80c8dc-1dac-4eaf-8674-75052d83d0c5').then((lotVideo) => {
 		const source = 'data:video/mp4;base64,' + lotVideo;
 		// document.getElementById('milling-video').src = 'data:video/mp4;base64,' + lotVideo;
-		document.getElementById('milling-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'Milling');"></video></span>`;
+		document.getElementById('milling-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'Milling');" onended="ga('send', 'event', 'Videos', 'ended', 'Milling');"></video></span>`;
 	});
 
 	// Column - Milling, Image
@@ -694,7 +694,7 @@ window.onload = function() {
 		// Testing
 		// console.log(lotVideo.type)
 
-		document.getElementById('de-pulping-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'DePulping');"></video></span>`;
+		document.getElementById('de-pulping-video-container').innerHTML = `<span class="image fit"><video src="${source}" class="image fit" controls onplay="ga('send', 'event', 'Videos', 'play', 'DePulping');" onended="ga('send', 'event', 'Videos', 'ended', 'DePulping');"></video></span>`;
 
 	});
 

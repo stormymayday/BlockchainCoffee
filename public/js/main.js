@@ -1,44 +1,79 @@
-// Testing Google Analytics
-// ga('send', 'event', 'GordonsTest', 'auto', 'Fall Campaign');
-
-// Google Analytics Events
-// Navbar ****************
+// Google Analytics Event Tracking
+// Navbar ************************
 // BCB logo / Home
 document.getElementById("BCB-logo").addEventListener("click", function(){
-	ga('send', 'event', 'Home-Top', 'click')
+	ga('send', 'event', 'Navbar', 'click', 'Home-Top');
 });
 // Farming
-document.getElementById("link-farming").addEventListener("click", ga('send', 'event', 'Farming', 'click'));
+document.getElementById("link-farming").addEventListener("click", function(){
+	ga('send', 'event', 'Navbar', 'click', 'Farming');
+});
 // Processing & Export
-document.getElementById("link-processing-and-export").addEventListener("click", ga('send', 'event', 'Processing-and-Export', 'click'));
+document.getElementById("link-processing-and-export").addEventListener("click", function(){
+	ga('send', 'event', 'Navbar', 'click', 'Processing-and-Export');
+});
 // Journey Highlights
-document.getElementById("link-journey-highlights").addEventListener("click", ga('send', 'event', 'Journey-Highlights', 'click'));
+document.getElementById("link-journey-highlights").addEventListener("click", function(){
+	ga('send', 'event', 'Navbar', 'click', 'Journey-Highlights');
+});
 // Roasting
-document.getElementById("link-roasting").addEventListener("click", ga('send', 'event', 'Roasting', 'click'));
+document.getElementById("link-roasting").addEventListener("click", function(){
+	ga('send', 'event', 'Navbar', 'click', 'Roasting');
+});
 // Feedback
-document.getElementById("link-feedback").addEventListener("click", ga('send', 'event', 'Feedback', 'click'));
+document.getElementById("link-feedback").addEventListener("click", function(){
+	ga('send', 'event', 'Navbar', 'click', 'Feedback');
+});
 // About
-document.getElementById("link-about").addEventListener("click", ga('send', 'event', 'About', 'click'));
+document.getElementById("link-about").addEventListener("click", function(){
+	ga('send', 'event', 'Navbar', 'click', 'About');
+});
 // Sponsors
-document.getElementById("link-sponsors").addEventListener("click", ga('send', 'event', 'Sponsors', 'click'));
-// Navbar ****************
+document.getElementById("link-sponsors").addEventListener("click", function(){
+	ga('send', 'event', 'Navbar', 'click', 'Sponsors');
+});
+// Navbar End ********************
 // BEXT Marketplace
-document.getElementById("bext-marketplace-link").addEventListener("click", ga('send', 'event', 'Bext-Marketplace', 'click'));
+document.getElementById("bext-marketplace-link").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Bext-Marketplace');
+});
 // Catracha
-document.getElementById("catracha-logo-link").addEventListener("click", ga('send', 'event', 'Catracha-Logo', 'click'));
-document.getElementById("catracha-button").addEventListener("click", ga('send', 'event', 'Catracha-Button', 'click'));
+document.getElementById("catracha-logo-link").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Catracha-Logo');
+});
+document.getElementById("catracha-button").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Catracha-Button');
+});
 // Buy This Coffee button
-document.getElementById("buy-this-coffee").addEventListener("click", ga('send', 'event', 'BuyThisCoffee', 'click'));
+document.getElementById("buy-this-coffee").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'BuyThisCoffee');
+});
 // BEXT Homepage
-document.getElementById("bext-homepage-link").addEventListener("click", ga('send', 'event', 'Bext-Homepage', 'click'));
+document.getElementById("bext-homepage-link").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Bext-Homepage');
+});
 // iDE Homepage
-document.getElementById("ide-homepage-link").addEventListener("click", ga('send', 'event', 'iDE-Homepage', 'click'));
+document.getElementById("ide-homepage-link").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'iDE-Homepage');
+});
 // Arrow Homepage
-document.getElementById("arrow-homepage-link").addEventListener("click", ga('send', 'event', 'Arrow-Homepage', 'click'));
+document.getElementById("arrow-homepage-link").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Arrow-Homepage');
+});
 // Posner Homepage
-document.getElementById("posner-homepage-link").addEventListener("click", ga('send', 'event', 'Posner-Homepage', 'click'));
-// Test
-document.getElementById("dummy").addEventListener("click", ga('send', 'event', 'TestingEL', 'click'));
+document.getElementById("posner-homepage-link").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Posner-Homepage');
+});
+// Social Media Sharing **********
+// Facebook
+document.getElementById("link-twitter").addEventListener("click", function(){
+	ga('send', 'event', 'SocialMediaSharing', 'click', 'Twitter');
+});
+// Twitter
+document.getElementById("link-facebook").addEventListener("click", function(){
+	ga('send', 'event', 'SocialMediaSharing', 'click', 'Facebook');
+});
+// Social Media Sharing End ******
 
 // Navbar Script
 const toggleButton = document.getElementsByClassName('toggle-button')[0];

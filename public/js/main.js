@@ -61,8 +61,11 @@ document.getElementById("arrow-homepage-link").addEventListener("click", functio
 	ga('send', 'event', 'Link', 'click', 'Arrow-Homepage');
 });
 // Posner Homepage
-document.getElementById("posner-homepage-link").addEventListener("click", function(){
-	ga('send', 'event', 'Link', 'click', 'Posner-Homepage');
+document.getElementById("posner-homepage-link-logo").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Posner-Homepage-Logo');
+});
+document.getElementById("posner-homepage-link-button").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Posner-Homepage-Button');
 });
 // Social Media Sharing **********
 // Facebook

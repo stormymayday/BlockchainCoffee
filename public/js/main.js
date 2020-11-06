@@ -57,8 +57,11 @@ document.getElementById("ide-homepage-link").addEventListener("click", function(
 	ga('send', 'event', 'Link', 'click', 'iDE-Homepage');
 });
 // Arrow Homepage
-document.getElementById("arrow-homepage-link").addEventListener("click", function(){
-	ga('send', 'event', 'Link', 'click', 'Arrow-Homepage');
+document.getElementById("arrow-homepage-link-logo").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Arrow-Homepage-Logo');
+});
+document.getElementById("arrow-homepage-link-button").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Arrow-Homepage-Button');
 });
 // Posner Homepage
 document.getElementById("posner-homepage-link-logo").addEventListener("click", function(){

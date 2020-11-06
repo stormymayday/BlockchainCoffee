@@ -3110,7 +3110,7 @@ button:disabled,
 	color: #ffffff !important;
 }
 
-/* BLOCKCHAIN GEEKS CLICK HERE Button */
+/* MORE BLOCKCHAIN Button */
 .main .button.blockchain {
 	font-size: 1.5em;
 	background-color: #000;
@@ -3118,12 +3118,12 @@ button:disabled,
 	color: #fff !important;
 }
 
-/* BLOCKCHAIN GEEKS CLICK HERE width */
+/* MORE BLOCKCHAIN Button width */
 .main ul.actions li {
 	width: 100%;
 }
 
-/* Buy This Coffe Button */
+/* Buy This Coffee Button */
 .roasting .button {
 	font-size: 1.5em;
 	background-color: #fff;
@@ -3131,9 +3131,14 @@ button:disabled,
 	color: #000 !important;
 }
 
-/* Buy This Coffe Button width */
+/* Buy This Coffee Button width */
 .roasting ul.actions li {
 	width: 100%;
+}
+
+/* About UL */
+.about-ul {
+	text-align: left;
 }
 
 .header-appendix {
@@ -3206,6 +3211,23 @@ button:disabled,
 	border-radius: 2px !important;
 }
 
+.bext-logo {
+	width: 75%;
+}
+
+.ide-logo {
+	width: 45%;
+}
+
+.arrow-logo {
+	width: 100%;
+	padding-top: 1.1em;
+}
+
+.posner-logo {
+	width: 45%;
+}
+
 .BEXT360-logo {
 	height: 1em;
 }
@@ -3254,6 +3276,10 @@ button:disabled,
 	/* flex-direction: column; */
 }
 
+.partner-container a {
+	border: none;
+}
+
 .toggle-button {
 	position: absolute;
 	top: 2.8rem;
@@ -3291,6 +3317,10 @@ button:disabled,
 .change .bar3 {
 	-webkit-transform: rotate(45deg) translate(-8px, -8px);
 	transform: rotate(45deg) translate(-5px, -5px);
+}
+
+#footer p {
+	margin-bottom: 0.5em;
 }
 
 #header a {
@@ -3886,6 +3916,12 @@ body.is-preload #header:after {
 	}
 }
 
+@media screen and (max-width: 736px) {
+	.posner-logo {
+		width: 50%;
+	}
+}
+
 /* XSmall */
 
 @media screen and (max-width: 480px) {
@@ -3942,6 +3978,26 @@ body.is-preload #header:after {
 
 	#footer .copyright li:first-child {
 		margin-top: 0;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.arrow-logo {
+		width: 100%;
+	}
+
+	.posner-logo {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.arrow-logo {
+		width: 85%;
+	}
+
+	.posner-logo {
+		width: 80%;
 	}
 }
 

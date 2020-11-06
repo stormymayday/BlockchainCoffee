@@ -82,6 +82,10 @@ document.getElementById("link-twitter").addEventListener("click", function(){
 document.getElementById("link-facebook").addEventListener("click", function(){
 	ga('send', 'event', 'SocialMediaSharing', 'click', 'Facebook');
 });
+// Privacy Policy
+document.getElementById("link-privacy-policy").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'PrivacyPolicy');
+});
 // Social Media Sharing End ******
 
 // Navbar Script

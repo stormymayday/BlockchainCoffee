@@ -3110,6 +3110,19 @@ button:disabled,
 	color: #ffffff !important;
 }
 
+/* BLOCKCHAIN GEEKS CLICK HERE Button */
+.main .button.blockchain {
+	font-size: 1.5em;
+	background-color: #000;
+	width: 100% !important;
+	color: #fff !important;
+}
+
+/* BLOCKCHAIN GEEKS CLICK HERE width */
+.main ul.actions li {
+	width: 100%;
+}
+
 /* Buy This Coffe Button */
 .roasting .button {
 	font-size: 1.5em;

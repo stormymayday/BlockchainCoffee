@@ -35,7 +35,10 @@ document.getElementById("link-sponsors").addEventListener("click", function(){
 // Navbar End ********************
 // BEXT Marketplace
 document.getElementById("bext-marketplace-link").addEventListener("click", function(){
-	ga('send', 'event', 'Link', 'click', 'Bext-Marketplace');
+	ga('send', 'event', 'Link', 'click', 'Bext-Marketplace-Link');
+});
+document.getElementById("bext-marketplace-button").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Bext-Marketplace-Button');
 });
 // Catracha
 document.getElementById("catracha-logo-link").addEventListener("click", function(){
@@ -335,6 +338,7 @@ window.onload = function() {
 	getLot(lotid).then((res) => {
 		// Bext Marketplace link from the URL
 		document.getElementById('bext-marketplace-link').href = `https://www.bextmarketplace.com/#/mapsv2/${lotid}?OwnerOrganizationId=f0c3cd58-2055-46e3-b229-1a091d1fb3fe`;
+		document.getElementById('bext-marketplace-button').href = `https://www.bextmarketplace.com/#/mapsv2/${lotid}?OwnerOrganizationId=f0c3cd58-2055-46e3-b229-1a091d1fb3fe`;
 
 		// Roasted at 
 		getNode('73427e9e-e29d-4b33-9a27-95244bdb0370').then((res) => {
@@ -388,6 +392,7 @@ window.onload = function() {
 		getLot(lotid).then((res) => {
 			// Bext Marketplace link from the URL
 			document.getElementById('bext-marketplace-link').href = `https://www.bextmarketplace.com/#/mapsv2/${lotid}?OwnerOrganizationId=f0c3cd58-2055-46e3-b229-1a091d1fb3fe`;
+			document.getElementById('bext-marketplace-button').href = `https://www.bextmarketplace.com/#/mapsv2/${lotid}?OwnerOrganizationId=f0c3cd58-2055-46e3-b229-1a091d1fb3fe`;
 	
 			// Cuppers Notes, Roast Date, and Roaster
 			document.getElementById('lot-cuppers-notes').innerHTML = ` ${res.customData['CuppersNotes.Measure'].value}`;

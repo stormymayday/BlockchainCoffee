@@ -15,6 +15,7 @@ app.use(express.static('./public'));
 app.use(express.json({ limit: '1mb' }));
 
 // TEST POST Endpoint (for Async function 1)
+// We don't use post in our app, this was just a test
 app.post('/lotid', (request, response) => {
 	console.log(request.body);
 	lotid = request.body.lotid;

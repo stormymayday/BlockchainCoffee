@@ -8,8 +8,15 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Starting server at ${port}`));
 
-// Fetching index.html
-app.use(express.static('./public'));
+// Coinflip function for Google Optimize experiment
+let coin = Math.random() < 0.5;
+if(coin){
+	// Fetching the original index.html 
+	app.use(express.static('./public'));
+} else {
+	// Fetching the Variant B variantb.html 
+	app.use(express.static('public', { index: 'variantb.html' }));
+}
 
 // Parsing incoming data as JSON
 app.use(express.json({ limit: '1mb' }));

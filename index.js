@@ -9,8 +9,8 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Starting server at ${port}`));
 
 // Coinflip function for Google Optimize experiment
-let coin = Math.random() < 0.5;
-if(coin){
+// let coin = Math.random() < 0.5;
+if(true){
 	// Fetching the original index.html 
 	app.use(express.static('./public'));
 } else {

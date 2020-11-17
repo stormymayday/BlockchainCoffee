@@ -1,6 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-52FQH2C');
+		</script>
+		<!-- End Google Tag Manager -->
+
 		<!-- Google Optimize -->
 		<script src="https://www.googleoptimize.com/optimize.js?id=OPT-TCHGMR3"></script>
 		<!-- Google Analytics -->
@@ -16,27 +25,23 @@
 		// 2. Creating a tracker. 
 		ga('create', 'UA-526038-20', 'auto');
 
-		// 3. Setting the experiment ID and variation ID
-		// Original
-		// ga('set', 'exp', 'E_pFa9wPTI-R2w0wdWojKw.0');
+		function gtag() {dataLayer.push(arguments)}
 
-		// function implementExperimentA(value) {
-		// 	// Testing value
-		// 	console.log(value);
-  		// 	if (value == '0') {
-		// 		// Original
-		// 		console.log('Original');
-  		// 	} else {
-		// 		// Variant
-		// 		console.log('Variant B');
-		// 	}
-		// }
+		function implementExperimentA(value) {
+  			if (value ==  '0') {
+			// Provide code for visitors in the original.
+			console.log('Original');
+ 			} else if (value == '1') {
+			// Provide code for visitors in first variant.
+			console.log('Variant');
+			}
+		}
    
-		// ga('event', 'optimize.callback', {
-    	// 	name: 'E_pFa9wPTI-R2w0wdWojKw',
-    	// 	callback: implementExperimentA
-		// });
-		
+		gtag('event', 'optimize.callback', {
+    	name: 'r8isvrGiSMWvWIhBANZhyA',
+    	callback: implementExperimentA
+ 		});
+
 		// Google Optimize debugging
 		// console.log(google_optimize && google_optimize.get('E_pFa9wPTI-R2w0wdWojKw'));
 
@@ -64,6 +69,11 @@
 		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52FQH2C"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
 		<!-- Header -->
 		<section id="header">
 			<nav class="main-nav"> 

@@ -1,3 +1,21 @@
+// Google Optimize A/B Test
+function gtag() {dataLayer.push(arguments)}
+
+function implementExperimentA(value) {
+	  if (value ==  '0') {
+	// Provide code for visitors in the original.
+	console.log('Original Page');
+	 } else if (value == '1') {
+	// Provide code for visitors in first variant.
+	console.log('Variant Page');
+	}
+}
+
+gtag('event', 'optimize.callback', {
+name: 'r8isvrGiSMWvWIhBANZhyA',
+callback: implementExperimentA
+ });
+
 // Google Analytics Event Tracking
 // Navbar ************************
 // BCB logo / Home

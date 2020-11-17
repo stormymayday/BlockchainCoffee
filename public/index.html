@@ -25,26 +25,6 @@
 		// 2. Creating a tracker. 
 		ga('create', 'UA-526038-20', 'auto');
 
-		function gtag() {dataLayer.push(arguments)}
-
-		function implementExperimentA(value) {
-  			if (value ==  '0') {
-			// Provide code for visitors in the original.
-			console.log('Original');
- 			} else if (value == '1') {
-			// Provide code for visitors in first variant.
-			console.log('Variant');
-			}
-		}
-   
-		gtag('event', 'optimize.callback', {
-    	name: 'r8isvrGiSMWvWIhBANZhyA',
-    	callback: implementExperimentA
- 		});
-
-		// Google Optimize debugging
-		// console.log(google_optimize && google_optimize.get('E_pFa9wPTI-R2w0wdWojKw'));
-
 		// 4. Sending a pageview hit to Google Analytics
 		ga('send', 'pageview');
 		</script>

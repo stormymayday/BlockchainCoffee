@@ -1,13 +1,14 @@
 // Google Optimize A/B Test
 function gtag() {dataLayer.push(arguments)}
-
 function implementExperimentA(value) {
 	  if (value ==  '0') {
 	// Provide code for visitors in the original.
 	console.log('Original Page');
+	document.getElementById('feedback-btn-container').style.display = "none";
 	 } else if (value == '1') {
 	// Provide code for visitors in first variant.
 	console.log('Variant Page');
+	document.getElementById('feedback-btn-container').style.display = "block";
 	}
 }
 
@@ -57,6 +58,10 @@ document.getElementById("bext-marketplace-link").addEventListener("click", funct
 });
 document.getElementById("bext-marketplace-button").addEventListener("click", function(){
 	ga('send', 'event', 'Link', 'click', 'Bext-Marketplace-Button');
+});
+// Feedback Button
+document.getElementById("feedback-btn").addEventListener("click", function(){
+	ga('send', 'event', 'Link', 'click', 'Give-Feedback-Button');
 });
 // Catracha
 document.getElementById("catracha-logo-link").addEventListener("click", function(){

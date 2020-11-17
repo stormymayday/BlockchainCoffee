@@ -3118,6 +3118,14 @@ button:disabled,
 	color: #fff !important;
 }
 
+/* MORE BLOCKCHAIN Button */
+.main .button.feedback {
+	font-size: 1.5em;
+	background-color: red;
+	width: 100% !important;
+	color: #fff !important;
+}
+
 /* MORE BLOCKCHAIN Button width */
 .main ul.actions li {
 	width: 100%;

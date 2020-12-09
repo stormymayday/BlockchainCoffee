@@ -3083,7 +3083,7 @@ button:disabled,
 	background-color: #000;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed, fixed;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/ClaudiaYJuan.jpg);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/ClaudiaYJuan.jpg);
 	background-size: auto, cover, cover;
 	background-position: top left, center center, center center;
 	overflow: hidden;
@@ -3096,10 +3096,10 @@ button:disabled,
 
 @keyframes slide {
 	0% {
-		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/ClaudiaYJuan.jpg);
+		background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/ClaudiaYJuan.jpg);
 	}
 	50% {
-		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
 			url(images/Scott-pours-coffee-cropped.jpg);
 	}
 }

@@ -3080,7 +3080,7 @@ button:disabled,
 #header {
 	/* padding: 9em 0 9em 0; */
 	padding: 0 0 9em 0;
-	background-color: #4686a0;
+	background-color: #000;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed, fixed;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/ClaudiaYJuan.jpg);

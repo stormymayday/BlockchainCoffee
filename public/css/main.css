@@ -3079,22 +3079,25 @@ button:disabled,
 /* Header */
 #header {
 	/* padding: 9em 0 9em 0; */
-	padding: 0 0 9em 0;
+	/* padding: 0 0 9em 0; */
 	background-color: #000;
 	color: rgba(255, 255, 255, 0.75);
 	background-attachment: fixed, fixed, fixed;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/ClaudiaYJuan.jpg);
+	/* background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/ClaudiaYJuan.jpg); */
 	background-size: auto, cover, cover;
 	background-position: top left, center center, center center;
 	overflow: hidden;
 	position: relative;
 	text-align: center;
-	min-height: 100vh;
+	/* min-height: 100vh; */
 
 	animation: slide 20s infinite;
+
+	height: 0;
+	background-color: #fff;
 }
 
-@keyframes slide {
+/* @keyframes slide {
 	0% {
 		background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/ClaudiaYJuan.jpg);
 	}
@@ -3102,7 +3105,7 @@ button:disabled,
 		background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
 			url(images/Scott-pours-coffee-cropped.jpg);
 	}
-}
+} */
 
 #header .inner h1 {
 	margin-top: 45vh;
@@ -3117,6 +3120,143 @@ button:disabled,
 }
 
 /* Custom CSS */
+
+/* Image Slider Start */
+.slider {
+	position: relative;
+	overflow: hidden;
+	height: 100vh;
+	width: 100vw;
+
+	color: #fff;
+	text-align: center;
+}
+
+.slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 0.4s ease-in-out;
+}
+
+.slide.current {
+	opacity: 1;
+}
+
+.slide .content {
+	position: absolute;
+	left: 13%;
+	bottom: -300px;
+	opacity: 0;
+	width: 600px;
+	padding: 35px;
+	width: 75%;
+}
+
+.slide .content h1 {
+	margin-bottom: 15px;
+	color: #fff;
+}
+
+.slide .content p {
+	margin-bottom: 10px;
+}
+
+.slide.current .content {
+	opacity: 1;
+	transform: translateX(300px);
+	transition: all 0.7s ease-in-out 0.3s;
+}
+
+.slide.current .content {
+	transform: translateY(-300px);
+}
+
+.buttons button#next {
+	position: absolute;
+	top: 50%;
+	right: 15px;
+}
+
+.buttons button#prev {
+	position: absolute;
+	top: 50%;
+	left: 15px;
+}
+
+.buttons button {
+	border: 2px solid #fff;
+	background-color: transparent;
+	color: #fff !important;
+	cursor: pointer;
+	padding: 1px 10px;
+	/* border-radius: 50%; */
+	outline: none;
+}
+
+.buttons button:hover {
+	background-color: #fff;
+	color: #333 !important;
+}
+
+@media (max-width: 500px) {
+	.slide .content {
+		bottom: -300px;
+		left: 0;
+		width: 100%;
+	}
+
+	.slide.current .content {
+		transform: translateY(-300px);
+	}
+}
+
+@media (max-width: 450px) {
+	.buttons button#next {
+		position: absolute;
+		top: 92%;
+		right: 15px;
+	}
+
+	.buttons button#prev {
+		position: absolute;
+		top: 92%;
+		left: 15px;
+	}
+}
+
+/* Backgorund Images */
+
+.slide:first-child {
+	/* background: url(images/ClaudiaYJuan.jpg) no-repeat center top/cover; */
+	/* background-attachment: fixed, fixed, fixed; */
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/ClaudiaYJuan.jpg);
+	background-size: auto, cover, cover;
+	background-position: top left, center center, center center;
+}
+.slide:nth-child(2) {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+		url(images/Scott-pours-coffee-cropped.jpg);
+	background-size: auto, cover, cover;
+	background-position: top left, center center, center center;
+}
+/* .slide:nth-child(3) {
+	background: url('https://source.unsplash.com/TMOeGZw9NY4/1600x900') no-repeat center top/cover;
+}
+.slide:nth-child(4) {
+	background: url('https://source.unsplash.com/yXpA_eCbtzI/1600x900') no-repeat center top/cover;
+}
+.slide:nth-child(5) {
+	background: url('https://source.unsplash.com/ULmaQh9Gvbg/1600x900') no-repeat center top/cover;
+}
+.slide:nth-child(6) {
+	background: url('https://source.unsplash.com/ggZuL3BTSJU/1600x900') no-repeat center center/cover;
+} */
+/* Image Slider End */
+
 .processing-and-export .button {
 	box-shadow: inset 0 0 0 1px #ffffff;
 	color: #ffffff !important;
@@ -3672,7 +3812,8 @@ body.is-preload #header:after {
 
 	#header {
 		/* padding: 6em 0 6em 0; */
-		padding: 0 0 6em 0;
+		/* padding: 0 0 6em 0; */
+		padding: 0;
 	}
 
 	#header .inner h1 {
@@ -3734,7 +3875,8 @@ body.is-preload #header:after {
 
 	#header {
 		/* padding: 5em 0 5em 0; */
-		padding: 0 0 5em 0;
+		/* padding: 0 0 5em 0; */
+		padding: 0;
 		background-attachment: scroll;
 	}
 
@@ -3814,7 +3956,8 @@ body.is-preload #header:after {
 
 	#header {
 		/* padding: 8em 3em 8em 3em; */
-		padding: 0 3em 8em 3em;
+		/* padding: 0 3em 8em 3em; */
+		padding: 0 3em;
 	}
 
 	#header .inner h1 {
@@ -3918,7 +4061,8 @@ body.is-preload #header:after {
 
 	#header {
 		/* padding: 4em 3em 4em 3em; */
-		padding: 0 3em 4em 3em;
+		/* padding: 0 3em 4em 3em; */
+		padding: 0 3em;
 	}
 
 	#header .inner h1 {
@@ -3964,7 +4108,8 @@ body.is-preload #header:after {
 
 	#header {
 		/* padding: 4em 2em 4em 2em; */
-		padding: 0em 2em 4em 2em;
+		/* padding: 0em 2em 4em 2em; */
+		padding: 0em 2em;
 	}
 
 	#header .inner h1 {
@@ -4041,7 +4186,8 @@ body.is-preload #header:after {
 
 	#header {
 		/* padding: 3em 1em 3em 1em; */
-		padding: 0 1em 3em 1em;
+		/* padding: 0 1em 3em 1em; */
+		padding: 0 1em;
 	}
 
 	#header .inner h1 {

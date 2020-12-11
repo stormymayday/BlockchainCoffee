@@ -112,15 +112,16 @@ document.getElementById("link-privacy-policy").addEventListener("click", functio
 });
 // Social Media Sharing End ******
 
-// Navbar Script
+// Navbar Script Start
 const toggleButton = document.getElementsByClassName('toggle-button')[0];
 const navbarLinks = document.getElementsByClassName('navbar-links')[0];
 toggleButton.addEventListener('click', () => {
 	navbarLinks.classList.toggle('activated');
 	toggleButton.classList.toggle('change');
 });
+// Navbar Script End
 
-// Social Media Share Links: 
+// Social Media Share Links Start 
 /* Taken from:
 https://crunchify.com/list-of-all-social-sharing-urls-for-handy-reference-social-media-sharing-buttons-without-javascript/
 
@@ -163,8 +164,73 @@ window.addEventListener("hashchange", function(event) {
   
 // Setting the offset when entering page with hash present in the url
 window.setTimeout(offsetAnchor, 0);
+// Social Media Share Links End
 
-// API functions
+// Image Slider Start
+const slides = document.querySelectorAll('.slide');
+const next = document.querySelector('#next');
+const prev = document.querySelector('#prev');
+const auto = true; // Auto scroll
+const intervalTime = 5000;
+let slideInterval;
+
+const nextSlide = () => {
+  // Get current class
+  const current = document.querySelector('.current');
+  // Remove current class
+  current.classList.remove('current');
+  // Check for next slide
+  if (current.nextElementSibling) {
+    // Add current to next sibling
+    current.nextElementSibling.classList.add('current');
+  } else {
+    // Add current to start
+    slides[0].classList.add('current');
+  }
+  setTimeout(() => current.classList.remove('current'));
+};
+
+const prevSlide = () => {
+  // Get current class
+  const current = document.querySelector('.current');
+  // Remove current class
+  current.classList.remove('current');
+  // Check for prev slide
+  if (current.previousElementSibling) {
+    // Add current to prev sibling
+    current.previousElementSibling.classList.add('current');
+  } else {
+    // Add current to last
+    slides[slides.length - 1].classList.add('current');
+  }
+  setTimeout(() => current.classList.remove('current'));
+};
+
+// Button events
+next.addEventListener('click', e => {
+  nextSlide();
+  if (auto) {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, intervalTime);
+  }
+});
+
+prev.addEventListener('click', e => {
+  prevSlide();
+  if (auto) {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, intervalTime);
+  }
+});
+
+// Auto slide
+if (auto) {
+  // Run next slide at interval time
+  slideInterval = setInterval(nextSlide, intervalTime);
+}
+// Image Slider End
+
+// API functions Start
 async function getLotHistory(lotID) {
 	const lotid = lotID;
 	// Local Path

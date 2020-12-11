@@ -3218,13 +3218,13 @@ button:disabled,
 	.buttons button#next {
 		position: absolute;
 		top: 92%;
-		right: 15px;
+		right: 0.1em;
 	}
 
 	.buttons button#prev {
 		position: absolute;
 		top: 92%;
-		left: 15px;
+		left: 0.1em;
 	}
 }
 

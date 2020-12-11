@@ -3207,23 +3207,30 @@ button:disabled,
 		bottom: -300px;
 		left: 0;
 		width: 100%;
+
+		padding-left: 40px;
+		padding-left: 40px;
 	}
 
 	.slide.current .content {
 		transform: translateY(-300px);
+	}
+
+	.buttons button {
+		padding: 1px 6px;
 	}
 }
 
 @media (max-width: 450px) {
 	.buttons button#next {
 		position: absolute;
-		top: 92%;
+		top: 93%;
 		right: 0.1em;
 	}
 
 	.buttons button#prev {
 		position: absolute;
-		top: 92%;
+		top: 93%;
 		left: 0.1em;
 	}
 }

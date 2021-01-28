@@ -8,15 +8,7 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Starting server at ${port}`));
 
-// Coinflip function for Google Optimize experiment
-// let coin = Math.random() < 0.5;
-if(true){
-	// Fetching the original index.html 
-	app.use(express.static('./public'));
-} else {
-	// Fetching the Variant B variantb.html 
-	app.use(express.static('public', { index: 'variantb.html' }));
-}
+app.use(express.static('./public'));
 
 // Parsing incoming data as JSON
 app.use(express.json({ limit: '1mb' }));
@@ -55,7 +47,6 @@ app.get('/getlot/:lotid', async (request, response) => {
 		})
 		.then((data) => {
 			// Logging data on the server
-			// console.log(data);
 
 			// Sending data as a RESPONSE to the fronted
 			response.json(data);
@@ -85,7 +76,6 @@ app.get('/getimage/:imageid', async (request, response) => {
 			return result.json();
 		})
 		.then((data) => {
-			// Logging data on the server
 			// console.log(data);
 
 			// Sending data as a RESPONSE to the fronted
@@ -115,7 +105,6 @@ app.get('/getvideo/:videoid', async (request, response) => {
 			return result.json();
 		})
 		.then((data) => {
-			// Logging data on the server
 			// console.log(data);
 
 			// Sending data as a RESPONSE to the fronted
@@ -146,7 +135,6 @@ app.get('/getnode/:nodeid', async (request, response) => {
 			return result.json();
 		})
 		.then((data) => {
-			// Logging data on the server
 			// console.log(data);
 			// Sending data as a RESPONSE to the fronted
 			response.json(data);
@@ -179,7 +167,6 @@ app.get('/getlothistory/:lotid', async (request, response) => {
 			return result.json();
 		})
 		.then((data) => {
-			// Logging data on the server
 			// console.log(data);
 			// Sending data as a RESPONSE to the fronted
 			response.json(data);

@@ -327,7 +327,7 @@ window.onload = function() {
 		// document.getElementById('header-appendix-paragraph').innerHTML = `The lotID is in the URL: ${lotid}`;
 	} else {
 		// Current Roast LotID
-		lotid = '604a9b13-7a0d-4649-a628-0ed0471aa96d';
+		lotid = '308b4539-da1a-49a6-9aac-46bad614458c';
 
 		// Paragraph
 		document.getElementById('header-appendix-paragraph').innerHTML = `<div class="container"><p>Hello, this page is more exciting when displaying information on a particular batch, so we have picked a default one for you!</p></div>`;
